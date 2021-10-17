@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from 'prop-types';
   
 const StyledProductList = styled.ul`
     display: flex;
@@ -12,6 +13,10 @@ const StyledProductList = styled.ul`
     gap: 1rem;
     row-gap: 2em;
 `;
+
+ProductList.propTypes = {
+    children: PropTypes.arrayOf(PropTypes.element).isRequired,
+};
 
 function ProductList(props){
 

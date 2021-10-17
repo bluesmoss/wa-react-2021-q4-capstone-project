@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from 'prop-types';
 import { COLORS } from "../../utils/constants";
   
 const StyledCategory = styled.div`
@@ -15,6 +16,16 @@ const StyledCategory = styled.div`
         color: white;
     }
 `;
+
+CategoryItem.propTypes = {
+    name: PropTypes.string.isRequired,
+    image: PropTypes.object.isRequired,
+};
+  
+CategoryItem.defaultProps = {
+    name: '',
+    image: {},
+};
 
 function CategoryItem({image, name}){
     return (

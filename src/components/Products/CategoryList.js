@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import {CategoryItem}  from "./CategoryItem"
 
 import styled from "styled-components";
@@ -12,6 +13,14 @@ const StyledCategoryList = styled.section`
     margin-bottom: 2em;
     gap: 1rem;
 `;
+
+CategoryList.propTypes = {
+    categories: PropTypes.array,
+};
+  
+CategoryList.defaultProps = {
+    categories: [],
+};
 
 function CategoryList({categories}){
 
