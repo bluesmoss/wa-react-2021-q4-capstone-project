@@ -31,9 +31,14 @@ const StyledHeader = styled.header`
         }  
     }
 
-    .header__search{
+    .header__search-icon{
         height: 24px;
         width: 24px;
+        top: 30px;
+        position: absolute;
+        right: 80px;        
+        transform: translate(-50%,-50%);
+        transition: .2s;        
     }
     
     .header__cart{
@@ -47,6 +52,40 @@ const StyledHeader = styled.header`
         gap: 1rem;
     }
 
+    .header__search-wrapper{
+        :hover img{
+            display: none;
+        }
+    }
+    
+    .header__search-input{
+        padding: 10px;
+        width: 20px;
+        height: 1.7rem;
+        background: none;
+        border: none;
+        box-sizing: border-box;
+        font-size: 1rem;
+        outline: none;
+        transition: .5s;  
+        
+        :hover {
+            width: 220px;
+            border-radius: 10px;
+            color: darkgray;
+            border: 2px solid ${COLORS.SECONDARY};
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+
+        padding: 10px 30px;
+
+        .header__logo{
+            font-size: 1.5rem;
+        }
+    }    
+
 `;
 
 function Header(){
@@ -57,8 +96,14 @@ function Header(){
                 👽 <TextGradient color={"PRIMARY"} className="header__text">MOSAN.</TextGradient>
             </Wrapper>
             <Wrapper className="header__actions">
-                 <img className="header__search"  src={search} alt="search"/>
-                 <img  className="header__cart"  src={cart} alt="cart"/>
+                <Wrapper className="header__search-wrapper">
+                    <input 
+                        className="header__search-input" 
+                        placeholder="Type something to search..."
+                    />
+                    <img className="header__search-icon"  src={search} alt="search"/>
+                </Wrapper>
+                <img  className="header__cart"  src={cart} alt="cart"/>
             </Wrapper>            
         </StyledHeader>
     )
