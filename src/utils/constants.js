@@ -13,4 +13,4 @@ const TEXT_COLOR_TYPES = {
 };
   
 
-export { COLORS }
+export { COLORS, TEXT_COLOR_TYPES }
