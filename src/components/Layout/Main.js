@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {Home} from "../Home"
+import {Home} from "../Pages/Home"
 
 const StyledMain = styled.main`
   width: 100%;
