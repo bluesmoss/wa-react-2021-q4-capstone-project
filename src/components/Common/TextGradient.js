@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from 'prop-types';
 import { COLORS } from "../../utils/constants";
   
 const StyledTextGradient = styled.span`
@@ -18,6 +19,11 @@ const StyledTextGradient = styled.span`
     }
 `;
 
+TextGradient.propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.string.isRequired,
+};
+  
 
 function TextGradient(props){
     return (

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from 'prop-types';
 import { COLORS } from "../../utils/constants";
   
 const StyledText = styled.span`
@@ -9,6 +10,12 @@ const StyledText = styled.span`
     color: ${props => COLORS[props.settings.color] ? COLORS[props.settings.color] : COLORS.PRIMARY };
     font-weight: bold;
 `;
+
+TextColored.propTypes = {
+    color: PropTypes.string.isRequired,
+    children: PropTypes.string.isRequired,
+};
+
 
 function TextColored(props){
     return (

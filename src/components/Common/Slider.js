@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import styled from "styled-components";
+import PropTypes from 'prop-types';
 import arrowLeft from "../../assets/arrow-left.png"
 import arrowRight from "../../assets/arrow-right.png"
 
@@ -49,6 +50,14 @@ const StyledSection = styled.section`
         }
     }      
 `;
+
+Slider.propTypes = {
+    slides: PropTypes.array,
+};
+  
+Slider.defaultProps = {
+    slides: [],
+};
 
 function Slider({slides}){
 
