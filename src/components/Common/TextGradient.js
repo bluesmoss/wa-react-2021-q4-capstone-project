@@ -6,6 +6,7 @@ const StyledTextGradient = styled.span`
     ${props => props.settings.uppercase ? "text-transform: uppercase;" : "" };
     ${props => props.settings.lowercase ? "text-transform: lowercase;" : "" };
     ${props => props.settings.capitalize ? "text-transform: capitalize;" : "" };
+    font-size: ${props => props.settings.fontSize ? props.settings.fontSize : '1em' };
     color: ${props => COLORS[props.settings.color] ? COLORS[props.settings.color] : COLORS.PRIMARY };
     font-weight: bold;
 

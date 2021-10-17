@@ -2,7 +2,6 @@ import React from "react";
 import {CategoryItem}  from "./CategoryItem"
 
 import styled from "styled-components";
-import { COLORS } from "../../utils/constants";
   
 const StyledCategoryList = styled.section`
     display: flex;
