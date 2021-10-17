@@ -10,7 +10,6 @@ function Home(){
     const { results: slidesData } = featuredBanners;
     const { results: categoriesData } = productCategories;
     const { results: productsData } = featuredProducts;
-    console.log(productsData)
 
     return (
         <React.Fragment>
