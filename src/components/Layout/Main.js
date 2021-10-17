@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import {Home} from "../Home"
 
 const StyledMain = styled.main`
   width: 100%;
@@ -10,7 +11,7 @@ function Main(){
 
     return (
         <StyledMain>
-            Main
+            <Home/>
         </StyledMain>
     )
 }
