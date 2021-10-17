@@ -38,7 +38,7 @@ const StyledSection = styled.section`
 
     .slide.active{
         opacity: 1;
-        transition-duration: 1.5s;
+        transition-duration: 1s;
         transform: scale(1);
     }    
     
