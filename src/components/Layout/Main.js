@@ -3,8 +3,7 @@ import styled from "styled-components";
 import {Home} from "../Pages/Home"
 
 const StyledMain = styled.main`
-  width: 100%;
-  height: calc(100vh - 160px);
+  min-height: calc(100vh - 160px);
 `;
 
 function Main(){
