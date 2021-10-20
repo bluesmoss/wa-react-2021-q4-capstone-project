@@ -1,0 +1,16 @@
+const COLORS = {
+    PRIMARY: '#21c08b',
+    SECONDARY: '#3285d1',
+    TERTIARY: '#f313fe',
+    RED_WIZELINE: '#e93d44',
+    DARK_WIZELINE: '#262e30'
+};
+
+const TEXT_COLOR_TYPES = {
+    PRIMARY: "PRIMARY",
+    SECONDARY: "SECONDARY",
+    TERTIARY: "TERTIARY"
+};
+  
+
+export { COLORS, TEXT_COLOR_TYPES }
