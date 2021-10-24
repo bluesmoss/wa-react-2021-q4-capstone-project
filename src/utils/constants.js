@@ -3,7 +3,10 @@ const COLORS = {
     SECONDARY: '#21c08b',
     TERTIARY: '#f313fe',
     RED_WIZELINE: '#e93d44',
-    DARK_WIZELINE: '#262e30'
+    DARK_WIZELINE: '#262e30',
+    LIGHT_BASE: '#FFFFFF',
+    DARK_BASE: '#454545',
+
 };
 
 const TEXT_COLOR_TYPES = {
