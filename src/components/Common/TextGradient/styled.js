@@ -1,7 +1,5 @@
-import React from "react";
 import styled from "styled-components";
-import PropTypes from 'prop-types';
-import { COLORS } from "../../utils/constants";
+import { COLORS } from "../../../utils/constants";
   
 const StyledTextGradient = styled.span`
     ${props => props.settings.uppercase ? "text-transform: uppercase;" : "" };
@@ -19,16 +17,4 @@ const StyledTextGradient = styled.span`
     }
 `;
 
-TextGradient.propTypes = {
-    className: PropTypes.string,
-    children: PropTypes.string.isRequired,
-};
-  
-
-function TextGradient(props){
-    return (
-        <StyledTextGradient settings={props} className={props.className ? props.className : ''}/>
-    )
-}
-
-export { TextGradient }
+export { StyledTextGradient }
