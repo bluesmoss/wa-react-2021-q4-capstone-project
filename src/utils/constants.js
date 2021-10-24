@@ -11,6 +11,20 @@ const TEXT_COLOR_TYPES = {
     SECONDARY: "SECONDARY",
     TERTIARY: "TERTIARY"
 };
+
+const STYLES_SIZE = {
+    SM : "0.8em",
+    MD : "1em",
+    LG : "1.2em",
+    XLG: "2em"
+}
+
+const ELEMENT_SIZE = {
+    SM : "SM",
+    MD : "MD",
+    LG : "LG",
+    XLG: "XLG"
+}
   
 
-export { COLORS, TEXT_COLOR_TYPES }
+export { COLORS, TEXT_COLOR_TYPES, STYLES_SIZE, ELEMENT_SIZE }
