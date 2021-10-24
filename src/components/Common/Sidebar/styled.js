@@ -6,7 +6,7 @@ const StyledSidebar = styled.aside`
     flex-direction: column;
     justify-content: start;
     flex-wrap: wrap;
-    width: 250px;
+    min-width: 250px;
     min-height: calc(100vh - 160px);
     border-right: 2px solid ${COLORS.PRIMARY};
 

@@ -5,7 +5,7 @@ import { StyledSidebar } from "./styled"
 function Sidebar(props){
 
     return (    
-        <StyledSidebar>
+        <StyledSidebar className={props.className ? props.className : ''} >
             {props.children}
         </StyledSidebar>
     )
