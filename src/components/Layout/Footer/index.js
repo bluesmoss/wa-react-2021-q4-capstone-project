@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, TextColored, Wrapper} from "../../Common"
+import { LinkColored, TextColored, Wrapper} from "../../Common"
 import { StyledFooter } from "./styled"
 
 function Footer(){
@@ -10,7 +10,7 @@ function Footer(){
                 Ecommerce created during Wizeline’s Academy React Bootcamp
             </Wrapper>
             <Wrapper>
-                Made with 💙 by <Link url="https://github.com/bluesmoss" newPage>@bluesmoss</Link> 2<TextColored color={"PRIMARY"}>K</TextColored>21
+                Made with 💙 by <LinkColored url="https://github.com/bluesmoss" newPage>@bluesmoss</LinkColored> 2<TextColored color={"PRIMARY"}>K</TextColored>21
             </Wrapper>
         </StyledFooter>
     )

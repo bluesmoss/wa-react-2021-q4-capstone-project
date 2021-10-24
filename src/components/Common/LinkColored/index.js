@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { StyledLink } from './styled'
 
-function Link(props){
+function LinkColored(props){
 
     const urlTarget = (props.newPage) ? '_blank' : '_self'
 
@@ -13,13 +13,13 @@ function Link(props){
     )
 }
 
-Link.propTypes = {
+LinkColored.propTypes = {
     newPage: PropTypes.bool,
     children: PropTypes.string.isRequired,
 };
   
-Link.defaultProps = {
+LinkColored.defaultProps = {
     newPage: false,
 };
 
-export { Link }
+export { LinkColored }
