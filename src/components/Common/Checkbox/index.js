@@ -6,7 +6,7 @@ function Checkbox(props){
 
     return (
         <StyledCheckbox>
-            <input type="checkbox"  id={props.id}/>
+            <input type="checkbox"  id={props.id} name={props.type} onChange={props.onChange}/>
             <label htmlFor={props.id}>{props.name}</label>
         </StyledCheckbox>
     )

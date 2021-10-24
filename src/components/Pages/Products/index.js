@@ -1,11 +1,13 @@
-import React from "react";
-import {productCategories, products} from '../../../mocks/en-us';
+import React, {useContext} from "react";
+import {productCategories} from '../../../mocks/en-us';
 import { Sidebar, Wrapper, Checkbox, TextGradient} from "../../../components/Common"
 import { ProductList, ProductPreview } from "../../Products"
+import { ProductsContext } from "../../../contexts/Products"
 
 function Products(){
+
+    const { filteredProducts, filterProducts} = useContext(ProductsContext)
     const { results: categories } = productCategories;
-    const { results: allProducts } = products;
     
     return (
         <Wrapper flex justify="start">
@@ -20,6 +22,8 @@ function Products(){
                             key={category.id}
                             name= {category.data.name}
                             id={category.id}
+                            type={category.slugs}
+                            onChange={(event)=> filterProducts(event)}
                         />
                     ))}                    
                 </Wrapper>                     
@@ -29,7 +33,7 @@ function Products(){
                     <TextGradient color={"PRIMARY"} fontSize="3em">Products</TextGradient>
                 </Wrapper>
                 <ProductList>
-                    {allProducts.map((product, index) => (
+                    {filteredProducts.map((product, index) => (
                         <ProductPreview 
                             key={product.id}
                             data={product.data}
