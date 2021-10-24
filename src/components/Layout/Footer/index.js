@@ -1,19 +1,8 @@
 import React from "react";
-import styled from "styled-components";
-import {TextColored} from "../Common/TextColored"
-import {Wrapper} from "../Common/Wrapper"
-import {Link} from "../Common/Link"
-import { COLORS } from "../../utils/constants";
-
-const StyledFooter = styled.footer`
-  height: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-  border-top: 2px solid ${COLORS.SECONDARY};
-`;
+import {TextColored} from "../../Common/TextColored"
+import {Wrapper} from "../../Common/Wrapper"
+import {Link} from "../../Common/Link"
+import { StyledFooter } from "./styled"
 
 function Footer(){
 
@@ -28,4 +17,5 @@ function Footer(){
         </StyledFooter>
     )
 }
+
 export { Footer }
