@@ -4,7 +4,7 @@ import {
     Switch,
     Route,
 } from "react-router-dom";
-import { Home } from "../../Pages/Home"
+import { Home, Products } from "../../Pages"
 import { StyledMain } from './styled'
 
 function Main(){
@@ -15,6 +15,7 @@ function Main(){
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/home" component={Home} />
+                    <Route exact path="/products" component={Products} />
                     <Route render={() => <h1>Not found!</h1>} />
                 </Switch>
             </Router>
