@@ -1,5 +1,5 @@
 import React, {Fragment} from "react";
-import { Slider, Button } from "../../Common"
+import { Slider, Button, Wrapper } from "../../Common"
 import { CategoryList } from "../../Category/CategoryList"
 import { FeaturedProducts } from "../../Products/FeaturedProducts";
 import { ELEMENT_SIZE } from "../../../utils/constants";
@@ -17,7 +17,9 @@ function Home(){
             <Slider slides={slidesData} />
             <CategoryList categories={categoriesData} />
             <FeaturedProducts products={productsData} />
-            <Button size={ELEMENT_SIZE.LG}>View all products</Button>
+            <Wrapper className="home__button" flex justify="center" margin="30px">
+                <Button size={ELEMENT_SIZE.LG}>View all products</Button>
+            </Wrapper>
         </Fragment>
     )
 }
