@@ -1,7 +1,6 @@
 import React, {Fragment} from "react";
 import {productCategories} from '../../../mocks/en-us';
-import { Sidebar, Wrapper, Checkbox, TextColored} from "../../../components/Common"
-import {TEXT_COLOR_TYPES} from "../../../utils/constants"
+import { Sidebar, Wrapper, Checkbox} from "../../../components/Common"
 
 function Products(){
     const { results: categories } = productCategories;
