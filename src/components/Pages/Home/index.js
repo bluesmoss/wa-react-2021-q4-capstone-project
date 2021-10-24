@@ -1,16 +1,24 @@
-import React, {Fragment} from "react";
+import React, {Fragment, useEffect, useContext} from "react";
 import { Slider, Button, Wrapper } from "../../Common"
 import { CategoryList } from "../../Category/CategoryList"
 import { FeaturedProducts } from "../../Products/FeaturedProducts";
-import { ELEMENT_SIZE } from "../../../utils/constants";
+import { ELEMENT_SIZE, GENERAL } from "../../../utils/constants";
 import { Link } from "react-router-dom";
 import {featuredBanners, productCategories, featuredProducts} from '../../../mocks/en-us';
+import { ProductsContext } from "../../../contexts/Products";
 
 
 function Home(){
     const { results: slidesData } = featuredBanners;
     const { results: categoriesData } = productCategories;
     const { results: productsData } = featuredProducts;
+
+    const { allProducts, setFilteredProducts, setFilters} = useContext(ProductsContext)
+
+    useEffect( ()=>{
+        setFilteredProducts(allProducts)
+        setFilters(GENERAL.EMPTY_ARRAY)
+    })
 
     return (
         <Fragment>

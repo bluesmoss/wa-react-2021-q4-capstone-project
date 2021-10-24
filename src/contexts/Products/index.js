@@ -54,7 +54,10 @@ function ProductsProvider(props){
         <ProductsContext.Provider value={{
             filteredProducts,
             filterProducts,
-            totalProducts
+            totalProducts,
+            allProducts,
+            setFilteredProducts,
+            setFilters
         }}>
             {props.children}
         </ProductsContext.Provider>
