@@ -1,6 +1,6 @@
 import React, {Fragment} from "react";
 import { Slider } from "../../Common/Slider"
-import {CategoryList} from "../../Products/CategoryList"
+import { CategoryList } from "../../Category/CategoryList"
 import { FeaturedProducts } from "../../Products/FeaturedProducts";
 import featuredBanners from '../../../mocks/en-us/featured-banners.json';
 import productCategories from '../../../mocks/en-us/product-categories.json';
