@@ -1,13 +1,14 @@
 import React, {useContext} from "react";
 import {productCategories} from '../../../mocks/en-us';
-import { Sidebar, Wrapper, Checkbox, TextGradient} from "../../../components/Common"
+import { Sidebar, Wrapper, Checkbox, TextGradient, Paginator} from "../../../components/Common"
 import { ProductList, ProductPreview } from "../../Products"
 import { ProductsContext } from "../../../contexts/Products"
 
 function Products(){
 
-    const { filteredProducts, filterProducts} = useContext(ProductsContext)
+    const { filteredProducts, filterProducts, totalProducts} = useContext(ProductsContext)
     const { results: categories } = productCategories;
+    const totalSearchedProducts = filteredProducts.length;
     
     return (
         <Wrapper flex justify="start">
@@ -40,6 +41,7 @@ function Products(){
                         />                           
                     ))}                    
                 </ProductList>
+                <Paginator totalSearched={totalSearchedProducts} total={totalProducts}/>
             </section>
         </Wrapper>
     )

@@ -6,5 +6,6 @@ import { Wrapper } from "./Wrapper";
 import { Button } from "./Button";
 import { Sidebar } from "./Sidebar"
 import { Checkbox} from "./Checkbox"
+import { Paginator } from "./Paginator";
 
-export { LinkColored, Slider, TextColored, TextGradient, Wrapper, Button, Sidebar, Checkbox}
+export { LinkColored, Slider, TextColored, TextGradient, Wrapper, Button, Sidebar, Checkbox, Paginator}

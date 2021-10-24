@@ -31,7 +31,9 @@ const ELEMENT_SIZE = {
 
 const GENERAL = {
     ELEMENT_EMPTY_LENGTH : 0,
-    SINGLE_ELEMENT: 1
+    EMPTY_ARRAY: [],
+    SINGLE_ELEMENT: 1,
+    
 }
   
 

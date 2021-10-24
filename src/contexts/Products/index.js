@@ -6,9 +6,10 @@ const ProductsContext = createContext()
 
 function ProductsProvider(props){
     const { results: allProducts } = products;
-    const [filteredProducts, setfilteredProducts] = useState(allProducts)
-    const [filters, setfilters] = useState([])
-    const totalProducts = allProducts.length;
+    const [filteredProducts, setFilteredProducts] = useState(allProducts)
+    const [filters, setFilters] = useState(GENERAL.EMPTY_ARRAY)
+    const [totalProducts, setTotalProducts] = useState(allProducts.length)
+
 
     const filterProducts = (event) => {
         const filterEnabled = event.target.checked;
@@ -26,7 +27,7 @@ function ProductsProvider(props){
         slugs.forEach(element => {
             temporalFilters.push(element)
         })
-        setfilters(temporalFilters)
+        setFilters(temporalFilters)
     }
 
     const removeFilter = (slugs) => {
@@ -35,7 +36,7 @@ function ProductsProvider(props){
             const removeItem = filters.indexOf(element)
             temporalFilters.splice(removeItem, GENERAL.SINGLE_ELEMENT)
         })
-        setfilters(temporalFilters)  
+        setFilters(temporalFilters)  
     }
 
     const applyFilters = () => {
@@ -46,14 +47,14 @@ function ProductsProvider(props){
                 return filters.includes(category)
             })
         } 
-        setfilteredProducts(productsUpdated)
+        setFilteredProducts(productsUpdated)
     }
   
     return (
         <ProductsContext.Provider value={{
             filteredProducts,
-            totalProducts,
-            filterProducts
+            filterProducts,
+            totalProducts
         }}>
             {props.children}
         </ProductsContext.Provider>
