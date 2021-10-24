@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Fragment} from "react";
 import { Slider } from "../../Common/Slider"
 import {CategoryList} from "../../Products/CategoryList"
 import { FeaturedProducts } from "../../Products/FeaturedProducts";
@@ -12,11 +12,11 @@ function Home(){
     const { results: productsData } = featuredProducts;
 
     return (
-        <React.Fragment>
+        <Fragment>
             <Slider slides={slidesData} />
             <CategoryList categories={categoriesData} />
             <FeaturedProducts products={productsData} />
-        </React.Fragment>
+        </Fragment>
     )
 }
 export { Home }
