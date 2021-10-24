@@ -27,8 +27,8 @@ function Paginator(props){
 }
 
 Paginator.propTypes = {
-    total: PropTypes.string.isRequired,
-    totalSearched: PropTypes.string.isRequired,
+    total: PropTypes.number.isRequired,
+    totalSearched: PropTypes.number.isRequired,
 };
 
 

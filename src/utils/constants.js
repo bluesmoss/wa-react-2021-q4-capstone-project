@@ -33,7 +33,7 @@ const GENERAL = {
     ELEMENT_EMPTY_LENGTH : 0,
     EMPTY_ARRAY: [],
     SINGLE_ELEMENT: 1,
-    
+    DELAY_DATA: 2000
 }
   
 
