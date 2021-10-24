@@ -1,7 +1,5 @@
 import React from "react";
-import {TextColored} from "../../Common/TextColored"
-import {Wrapper} from "../../Common/Wrapper"
-import {Link} from "../../Common/Link"
+import { Link, TextColored, Wrapper} from "../../Common"
 import { StyledFooter } from "./styled"
 
 function Footer(){

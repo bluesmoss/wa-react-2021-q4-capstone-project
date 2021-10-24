@@ -1,6 +1,5 @@
 import React from "react";
-import { TextGradient } from "../../Common/TextGradient";
-import { Wrapper } from "../../Common/Wrapper";
+import { TextGradient, Wrapper} from "../../Common"
 import { StyledHeader } from "./styled"
 import cart from "../../../assets/cart.png"
 import search from "../../../assets/search.svg"
