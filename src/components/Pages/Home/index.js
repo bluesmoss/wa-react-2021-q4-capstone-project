@@ -4,9 +4,8 @@ import { CategoryList } from "../../Category/CategoryList"
 import { FeaturedProducts } from "../../Products/FeaturedProducts";
 import { ELEMENT_SIZE } from "../../../utils/constants";
 import { Link } from "react-router-dom";
-import featuredBanners from '../../../mocks/en-us/featured-banners.json';
-import productCategories from '../../../mocks/en-us/product-categories.json';
-import featuredProducts from '../../../mocks/en-us/featured-products.json';
+import {featuredBanners, productCategories, featuredProducts} from '../../../mocks/en-us';
+
 
 function Home(){
     const { results: slidesData } = featuredBanners;
