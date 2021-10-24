@@ -11,7 +11,7 @@ const StyledTextGradient = styled.span`
 
     ::before{
         content: ${props => props.settings.children ? '"' + props.settings.children + '"' : '' };
-        background: linear-gradient(to left, ${COLORS.PRIMARY},  ${COLORS.SECONDARY});
+        background: linear-gradient(to right, ${COLORS.PRIMARY},  ${COLORS.SECONDARY});
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;        
     }

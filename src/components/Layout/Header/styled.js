@@ -22,7 +22,7 @@ z-index: 3;
 
       :hover > .header__text::before{
           content: "Weird is good";
-          background: linear-gradient(to left, ${COLORS.TERTIARY},  ${COLORS.SECONDARY});
+          background: linear-gradient(to left, ${COLORS.TERTIARY},  ${COLORS.PRIMARY});
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;    
       }  

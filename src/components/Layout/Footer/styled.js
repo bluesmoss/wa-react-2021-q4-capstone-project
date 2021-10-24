@@ -8,7 +8,7 @@ const StyledFooter = styled.footer`
   justify-content: center;
   align-items: center;
   padding: 30px;
-  border-top: 2px solid ${COLORS.SECONDARY};
+  border-top: 2px solid ${COLORS.PRIMARY};
 `;
 
 export { StyledFooter }

@@ -7,7 +7,7 @@ const StyledProductPreview = styled.div`
     align-items: center;
     max-width: 250px;
     max-height: 500px;
-    border: 2px solid ${COLORS.SECONDARY};
+    border: 2px solid ${COLORS.PRIMARY};
 
 .product__main-image{
     max-width: 100%;
@@ -22,7 +22,7 @@ const StyledProductPreview = styled.div`
         height: 50px;
         font-size: 1em;
         text-align: center;
-        background: ${COLORS.SECONDARY};
+        background: ${COLORS.PRIMARY};
         color: white;
         line-height:50px;
 }

@@ -1,6 +1,6 @@
 const COLORS = {
-    PRIMARY: '#21c08b',
-    SECONDARY: '#3285d1',
+    PRIMARY: '#3285d1',
+    SECONDARY: '#21c08b',
     TERTIARY: '#f313fe',
     RED_WIZELINE: '#e93d44',
     DARK_WIZELINE: '#262e30'

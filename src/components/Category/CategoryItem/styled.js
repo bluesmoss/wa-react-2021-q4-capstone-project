@@ -10,7 +10,7 @@ const StyledCategory = styled.div`
 
     .category__name{
         text-align: center;
-        background: ${COLORS.SECONDARY};
+        background: ${COLORS.PRIMARY};
         color: white;
     }
 `;

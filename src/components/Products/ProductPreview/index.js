@@ -11,7 +11,7 @@ function ProductPreview({data}){
                     <div className="product__name">{data.name}</div>
                     <div className="product__main-info">
                         <span>Category: {data.category.slug}</span>
-                        <span>Price: <TextColored color={"PRIMARY"}>$</TextColored>{data.price}</span>
+                        <span>Price: <TextColored color={"SECONDARY"}>$</TextColored>{data.price}</span>
                     </div>
                 </div>                               
             </StyledProductPreview>
