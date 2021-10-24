@@ -5,7 +5,7 @@ import { ProductsProvider } from "../../contexts/Products"
 
 function App() {
   return (
-      <Router>
+      <Router basename="/wa-react-2021-q4-capstone-project">
         <ProductsProvider>
           <Layout/>
         </ProductsProvider>
