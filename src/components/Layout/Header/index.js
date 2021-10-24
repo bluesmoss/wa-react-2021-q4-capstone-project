@@ -3,6 +3,7 @@ import { TextGradient, Wrapper} from "../../Common"
 import { StyledHeader } from "./styled"
 import cart from "../../../assets/cart.png"
 import search from "../../../assets/search.svg"
+import { Link } from "react-router-dom";
 
 
 
@@ -10,9 +11,11 @@ function Header(){
 
     return (
         <StyledHeader>
-            <Wrapper className="header__logo">
-                👽 <TextGradient color={"PRIMARY"} className="header__text">MOSAN.</TextGradient>
-            </Wrapper>
+            <Link to="/">
+                <Wrapper className="header__logo">
+                    👽 <TextGradient color={"PRIMARY"} className="header__text">MOSAN.</TextGradient>
+                </Wrapper>                
+            </Link>
             <Wrapper className="header__actions">
                 <Wrapper className="header__search-wrapper">
                     <input 

@@ -18,6 +18,7 @@ z-index: 3;
 
       font-weight: bold;
       font-size: 1.7em;
+      cursor: pointer;
 
       :hover > .header__text::before{
           content: "Weird is good";
@@ -34,12 +35,14 @@ z-index: 3;
       position: absolute;
       right: 80px;        
       transform: translate(-50%,-50%);
-      transition: .2s;        
+      transition: .2s;
+      cursor: pointer;    
   }
   
   .header__cart{
       height: 32px;
       width: 32px;
+      cursor: pointer;
   }
   
   .header__actions{
