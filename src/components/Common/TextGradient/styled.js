@@ -1,7 +1,5 @@
-import React from "react";
 import styled from "styled-components";
-import PropTypes from 'prop-types';
-import { COLORS } from "../../utils/constants";
+import { COLORS } from "../../../utils/constants";
   
 const StyledTextGradient = styled.span`
     ${props => props.settings.uppercase ? "text-transform: uppercase;" : "" };
@@ -13,22 +11,10 @@ const StyledTextGradient = styled.span`
 
     ::before{
         content: ${props => props.settings.children ? '"' + props.settings.children + '"' : '' };
-        background: linear-gradient(to left, ${COLORS.PRIMARY},  ${COLORS.SECONDARY});
+        background: linear-gradient(to right, ${COLORS.PRIMARY},  ${COLORS.SECONDARY});
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;        
     }
 `;
 
-TextGradient.propTypes = {
-    className: PropTypes.string,
-    children: PropTypes.string.isRequired,
-};
-  
-
-function TextGradient(props){
-    return (
-        <StyledTextGradient settings={props} className={props.className ? props.className : ''}/>
-    )
-}
-
-export { TextGradient }
+export { StyledTextGradient }
