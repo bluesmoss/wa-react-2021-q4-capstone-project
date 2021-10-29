@@ -1,10 +1,10 @@
-import React, {createContext, useState} from "react";
+import React, {createContext, useState, useContext} from "react";
 import  {products} from '../../mocks/en-us';
 import { GENERAL } from "../../utils/constants";
 
 const ProductsContext = createContext()
 
-function ProductsProvider(props){
+export const ProductsProvider = ({children}) => {
     const { results: allProducts } = products;
     const [filteredProducts, setFilteredProducts] = useState(allProducts)
     const [filters, setFilters] = useState(GENERAL.EMPTY_ARRAY)
@@ -57,11 +57,12 @@ function ProductsProvider(props){
             totalProducts,
             allProducts,
             setFilteredProducts,
-            setFilters
+            setFilters,
+            setTotalProducts
         }}>
-            {props.children}
+            {children}
         </ProductsContext.Provider>
     )
 }
 
-export {ProductsContext, ProductsProvider}
+export const useProductsContext = () => useContext(ProductsContext);

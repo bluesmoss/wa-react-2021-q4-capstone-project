@@ -1,23 +1,27 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {productCategories} from '../../mocks/en-us';
 import { Sidebar, Wrapper, Checkbox, TextGradient, Paginator, TextColored} from "../../components/Common"
 import { ProductList, ProductPreview } from "../../components/Products"
-import { ProductsContext } from "../../contexts/Products"
+import { useProductsContext } from "../../contexts/Products"
 import { Fragment } from "react/cjs/react.production.min";
 import { GENERAL, TEXT_COLOR_TYPES } from "../../utils/constants";
 
 function Products(){
 
-    const { filteredProducts, filterProducts, totalProducts} = useContext(ProductsContext)
+    const { filteredProducts, filterProducts, totalProducts, setFilteredProducts, setFilters, allProducts} = useProductsContext()
     const [loading, setLoading] = useState(true)
     const { results: categories } = productCategories;
     const totalSearchedProducts = filteredProducts.length;
     
-    useEffect( ()=>{
+    useEffect(()=>{
+        setFilteredProducts(allProducts)
+        setFilters(GENERAL.EMPTY_ARRAY)
+
         setTimeout(() => {
             setLoading(false)
         }, GENERAL.DELAY_DATA)
-    })
+
+    }, [])
     
     return (
         <Wrapper flex justify="start">
@@ -33,7 +37,7 @@ function Products(){
                             name= {category.data.name}
                             id={category.id}
                             type={category.slugs}
-                            onChange={(event)=> filterProducts(event)}
+                            onChange={filterProducts}
                         />
                     ))}                    
                 </Wrapper>                     
