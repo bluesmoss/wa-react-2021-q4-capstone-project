@@ -15,6 +15,8 @@ function Checkbox({ id, type, onChange, name }){
 Checkbox.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    onChange:  PropTypes.func.isRequired    
 };
 
 
