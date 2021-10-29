@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import { Home, Products } from "../../../Pages"
+import { Home, Products } from "../../../pages"
 import { StyledMain } from './styled'
 
 function Main(){
