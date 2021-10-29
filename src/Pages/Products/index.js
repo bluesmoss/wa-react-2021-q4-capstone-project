@@ -1,10 +1,10 @@
 import React, {useContext, useEffect, useState} from "react";
-import {productCategories} from '../../../mocks/en-us';
-import { Sidebar, Wrapper, Checkbox, TextGradient, Paginator, TextColored} from "../../../components/Common"
-import { ProductList, ProductPreview } from "../../Products"
-import { ProductsContext } from "../../../contexts/Products"
+import {productCategories} from '../../mocks/en-us';
+import { Sidebar, Wrapper, Checkbox, TextGradient, Paginator, TextColored} from "../../components/Common"
+import { ProductList, ProductPreview } from "../../components/Products"
+import { ProductsContext } from "../../contexts/Products"
 import { Fragment } from "react/cjs/react.production.min";
-import { GENERAL, TEXT_COLOR_TYPES } from "../../../utils/constants";
+import { GENERAL, TEXT_COLOR_TYPES } from "../../utils/constants";
 
 function Products(){
 

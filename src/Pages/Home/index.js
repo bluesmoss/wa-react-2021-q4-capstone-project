@@ -1,11 +1,11 @@
 import React, {Fragment, useEffect, useContext} from "react";
-import { Slider, Button, Wrapper } from "../../Common"
-import { CategoryList } from "../../Category/CategoryList"
-import { FeaturedProducts } from "../../Products/FeaturedProducts";
-import { ELEMENT_SIZE, GENERAL } from "../../../utils/constants";
+import { Slider, Button, Wrapper } from "../../components/Common"
+import { CategoryList } from "../../components/Category/CategoryList"
+import { FeaturedProducts } from "../../components/Products/FeaturedProducts";
+import { ELEMENT_SIZE, GENERAL } from "../../utils/constants";
 import { Link } from "react-router-dom";
-import {featuredBanners, productCategories, featuredProducts} from '../../../mocks/en-us';
-import { ProductsContext } from "../../../contexts/Products";
+import {featuredBanners, productCategories, featuredProducts} from '../../mocks/en-us';
+import { ProductsContext } from "../../contexts/Products";
 
 
 function Home(){
