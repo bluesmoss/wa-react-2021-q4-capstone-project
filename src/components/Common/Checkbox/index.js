@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { StyledCheckbox } from './styled'
 
-function Checkbox(props){
+function Checkbox({ id, type, onChange, name }){
 
     return (
         <StyledCheckbox>
-            <input type="checkbox"  id={props.id} name={props.type} onChange={props.onChange}/>
-            <label htmlFor={props.id}>{props.name}</label>
+            <input type="checkbox"  id={id} name={type} onChange={onChange}/>
+            <label htmlFor={id}>{name}</label>
         </StyledCheckbox>
     )
 }
