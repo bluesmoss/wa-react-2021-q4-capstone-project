@@ -28,7 +28,7 @@ export function useFeaturedBanners() {
           }
         );
         const data = await response.json();
-          console.info('iunnfo', data)
+
         setFeaturedBanners({ data, isLoading: false });
       } catch (err) {
         setFeaturedBanners({ data: {}, isLoading: false });

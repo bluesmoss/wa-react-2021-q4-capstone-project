@@ -1,14 +1,15 @@
-import React, {Fragment} from "react";
+import React, {Fragment, useEffect} from "react";
 import { Slider, Button, Wrapper } from "../../components/Common"
 import { CategoryList } from "../../components/Category/CategoryList"
 import { FeaturedProducts } from "../../components/Products/FeaturedProducts";
 import { ELEMENT_SIZE } from "../../utils/constants";
 import { Link } from "react-router-dom";
-import {featuredBanners, productCategories, featuredProducts} from '../../mocks/en-us';
+import { productCategories, featuredProducts} from '../../mocks/en-us';
+import { useFeaturedBanners } from "../../utils/hooks/useFeaturedBanners";
 
 
 function Home(){
-    const { results: slidesData } = featuredBanners;
+    const { data : { results : slidesData} } = useFeaturedBanners();
     const { results: categoriesData } = productCategories;
     const { results: productsData } = featuredProducts;
 
