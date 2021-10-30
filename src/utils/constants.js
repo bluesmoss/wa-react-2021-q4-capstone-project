@@ -35,6 +35,7 @@ const GENERAL = {
     SINGLE_ELEMENT: 1,
     DELAY_DATA: 2000
 }
-  
+
+export const API_BASE_URL = 'https://wizeline-academy.cdn.prismic.io/api/v2';
 
 export { COLORS, TEXT_COLOR_TYPES, STYLES_SIZE, ELEMENT_SIZE, GENERAL }
