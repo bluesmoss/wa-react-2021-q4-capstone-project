@@ -2,13 +2,13 @@ import React, {useEffect, useState} from "react";
 import {productCategories} from '../../mocks/en-us';
 import { Sidebar, Wrapper, Checkbox, TextGradient, Paginator, TextColored} from "../../components/Common"
 import { ProductList, ProductPreview } from "../../components/Products"
-import { useProductsContext } from "../../contexts/Products"
+import { useProductsContext } from "../../providers/Products"
 import { Fragment } from "react/cjs/react.production.min";
 import { GENERAL, TEXT_COLOR_TYPES } from "../../utils/constants";
 
 function Products(){
 
-    const { filteredProducts, filterProducts, totalProducts, setFilteredProducts, setFilters, allProducts} = useProductsContext()
+    const { filteredProducts, handleFilterProducts, totalProducts, setFilteredProducts, setFilters, allProducts} = useProductsContext()
     const [loading, setLoading] = useState(true)
     const { results: categories } = productCategories;
     const totalSearchedProducts = filteredProducts.length;
@@ -37,7 +37,7 @@ function Products(){
                             name= {category.data.name}
                             id={category.id}
                             type={category.slugs}
-                            onChange={filterProducts}
+                            onChange={handleFilterProducts}
                         />
                     ))}                    
                 </Wrapper>                     

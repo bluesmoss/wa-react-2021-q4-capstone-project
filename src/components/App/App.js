@@ -1,7 +1,7 @@
 import React from "react";
 import { Layout } from '../Layout'
 import { BrowserRouter as Router } from "react-router-dom";
-import { ProductsProvider } from "../../contexts/Products"
+import { ProductsProvider } from "../../providers/Products"
 
 function App() {
   return (
