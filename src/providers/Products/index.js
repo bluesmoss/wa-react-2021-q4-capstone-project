@@ -1,5 +1,4 @@
 import React, {createContext, useState, useContext, useEffect} from "react";
-import  {products} from '../../mocks/en-us';
 import { GENERAL } from "../../utils/constants";
 
 const ProductsContext = createContext()
@@ -15,10 +14,9 @@ export const useProductsContext = () => {
 };
 
 export const ProductsProvider = ({children}) => {
-    const { results: allProducts } = products;
-    const [filteredProducts, setFilteredProducts] = useState(allProducts)
+    const [filteredProducts, setFilteredProducts] = useState(GENERAL.EMPTY_ARRAY)
     const [filters, setFilters] = useState(GENERAL.EMPTY_ARRAY)
-    const [totalProducts, setTotalProducts] = useState(allProducts.length)
+    const [allProducts, setAllProducts] = useState(GENERAL.EMPTY_ARRAY)
     const [slugs, setSlugs] = useState('')
     const [filterEnabled, setFilterEnabled] = useState(false)
 
@@ -53,12 +51,11 @@ export const ProductsProvider = ({children}) => {
     return (
         <ProductsContext.Provider value={{
             filteredProducts,
-            handleFilterProducts,
-            totalProducts,
-            allProducts,
             setFilteredProducts,
+            handleFilterProducts,
+            allProducts,
+            setAllProducts,
             setFilters,
-            setTotalProducts
         }}>
             {children}
         </ProductsContext.Provider>

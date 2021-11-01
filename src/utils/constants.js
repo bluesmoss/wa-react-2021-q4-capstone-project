@@ -39,8 +39,8 @@ const GENERAL = {
 const QUERY = {
     CATEGORY_PREDICATE : '[[at(document.type, "category")]]',
     CATEGORY_SIZE : '30',
-    FEATURED_PRODUCTS_PREDICATE : '[[at(document.type, "category")]]',
-    FEATURED_PRODUCTS_SIZE : '30',    
+    PRODUCTS_PREDICATE : '[[at(document.type, "product")]]',
+    PRODUCTS_SIZE : '12',    
 }
 
 export const API_BASE_URL = 'https://wizeline-academy.cdn.prismic.io/api/v2';

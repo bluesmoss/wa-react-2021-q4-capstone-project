@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect} from "react";
+import React, {Fragment} from "react";
 import { Slider, Button, Wrapper } from "../../components/Common"
 import { CategoryList } from "../../components/Category/CategoryList"
 import { FeaturedProducts } from "../../components/Products/FeaturedProducts";
