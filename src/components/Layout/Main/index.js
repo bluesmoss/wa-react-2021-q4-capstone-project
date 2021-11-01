@@ -12,7 +12,7 @@ function Main(){
                 <Route exact path="/home" component={Home} />
                 <Route exact path="/products" component={Products} />
                 <Route path="/product/:productId" component={Product} />
-                <Route exact path="/search" component={Search} />
+                <Route path="/search" component={Search} />
                 <Route path="*" render={() => <h1>Not found!</h1>} />
             </Switch>
         </StyledMain>

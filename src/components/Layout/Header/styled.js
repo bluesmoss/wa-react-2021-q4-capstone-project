@@ -28,12 +28,19 @@ z-index: 3;
       }  
   }
 
+  .header__search-btn{
+    background: none;
+    height: 1.7rem;
+    width: 40px;
+    background: ${COLORS.SECONDARY};
+    border: none;
+  }
+
   .header__search-icon{
       height: 24px;
       width: 24px;
       top: 30px;
       position: absolute;
-      right: 80px;        
       transform: translate(-50%,-50%);
       transition: .2s;
       cursor: pointer;    
@@ -52,25 +59,25 @@ z-index: 3;
   }
 
   .header__search-wrapper{
-      :hover img{
-          display: none;
-      }
+      display: flex;
+      align-items: center;
+
   }
   
   .header__search-input{
       padding: 10px;
-      width: 20px;
+      width: 150px;
       height: 1.7rem;
       background: none;
       border: none;
       box-sizing: border-box;
       font-size: 1rem;
       outline: none;
-      transition: .5s;  
+      transition: .5s;
+      border: 2px solid ${COLORS.SECONDARY};
       
       :hover {
           width: 220px;
-          border-radius: 10px;
           color: darkgray;
           border: 2px solid ${COLORS.SECONDARY};
       }
