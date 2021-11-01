@@ -8,9 +8,8 @@ function CategoryList({categories}){
     return (
         <StyledCategoryList>
             {categories.map((category, index) => (
-                <Link to={`products?category=${category.slugs}`}>
+                <Link  key={category.id} to={`products?category=${category.slugs}`}>
                     <CategoryItem 
-                        key={category.id}
                         image= {category.data.main_image}
                         name= {category.data.name}
                     />                   
