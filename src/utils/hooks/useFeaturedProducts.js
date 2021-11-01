@@ -44,6 +44,6 @@ export function useFeaturedProducts() {
       controller.abort();
     };
   }, [apiRef, isApiMetadataLoading]);
-    console.info(featuredProducts)
+  
   return featuredProducts;
 }

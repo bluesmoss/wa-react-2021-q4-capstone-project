@@ -7,7 +7,6 @@ import cart from '../../../assets/cart.png'
 import { Link } from "react-router-dom";
 
 function ProductPreview({data}){
-    console.log(data);
     return (
             <StyledProductPreview>
                 <img src={data.mainimage.url} alt={data.mainimage.alt} className="product__main-image"/> 
