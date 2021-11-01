@@ -6,7 +6,7 @@ import { ELEMENT_SIZE } from "../../../utils/constants";
 import cart from '../../../assets/cart.png'
 import { Link } from "react-router-dom";
 
-function ProductPreview({data}){
+function ProductPreview({data, id}){
     return (
             <StyledProductPreview>
                 <img src={data.mainimage.url} alt={data.mainimage.alt} className="product__main-image"/> 
@@ -20,7 +20,7 @@ function ProductPreview({data}){
                         <button className="product__add-cart">
                             <img  className="product__cart"  src={cart} alt="cart"/>
                         </button>
-                        <Link to={`/product/${data.sku}`}>
+                        <Link to={`/product/${id}`}>
                             <Button size={ELEMENT_SIZE.MD} className="product__details" >View details</Button>
                         </Link>
                     </Wrapper>

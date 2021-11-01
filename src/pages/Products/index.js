@@ -69,6 +69,7 @@ function Products(){
                                 <ProductPreview 
                                     key={product.id}
                                     data={product.data}
+                                    id={product.id}
                                 />                           
                             ))}                    
                         </ProductList>
