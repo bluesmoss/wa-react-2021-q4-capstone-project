@@ -26,6 +26,13 @@ const StyledSidebar = styled.aside`
         &__title{
             font-size: 1.5em;
         }
+
+        &__clear{
+            width: 100%;
+            margin: 10px;
+            padding: 5px 20px;
+            font-weight: normal;
+        }
     }
 `;
 

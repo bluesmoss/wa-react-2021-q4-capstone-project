@@ -48,6 +48,11 @@ export const ProductsProvider = ({children}) => {
         setSlugs(filterSlugs)
         setFilterEnabled(filterEnabled)
     }
+
+    const handleClearFilters = (event) => {
+        setFilteredProducts(allProducts)
+        setFilters(GENERAL.EMPTY_ARRAY)
+    }
   
     return (
         <ProductsContext.Provider value={{
@@ -56,9 +61,11 @@ export const ProductsProvider = ({children}) => {
             handleFilterProducts,
             allProducts,
             setAllProducts,
+            filters,
             setFilters,
             paginator,
-            setPaginator
+            setPaginator,
+            handleClearFilters
         }}>
             {children}
         </ProductsContext.Provider>

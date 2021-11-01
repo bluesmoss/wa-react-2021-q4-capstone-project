@@ -1,14 +1,14 @@
 import React, {useEffect} from "react";
-import { Sidebar, Wrapper, Checkbox, TextGradient, Paginator, TextColored} from "../../components/Common"
+import { Sidebar, Wrapper, Checkbox, TextGradient, Paginator, TextColored, Button} from "../../components/Common"
 import { ProductList, ProductPreview } from "../../components/Products"
 import { useProductsContext } from "../../providers/Products"
 import { Fragment } from "react/cjs/react.production.min";
-import { GENERAL, QUERY, TEXT_COLOR_TYPES } from "../../utils/constants";
+import { ELEMENT_SIZE, GENERAL, QUERY, TEXT_COLOR_TYPES } from "../../utils/constants";
 import { useGetDataAPI } from "../../utils/hooks/useGetDataAPI";
 
 function Products(){
     const { data : products, isLoading } = useGetDataAPI(QUERY.PRODUCTS_PREDICATE, QUERY.PRODUCTS_SIZE);
-    const { filteredProducts, handleFilterProducts, setFilteredProducts, setFilters, setAllProducts, setPaginator} = useProductsContext()
+    const { filteredProducts, handleFilterProducts, setFilteredProducts, setFilters, setAllProducts, setPaginator, filters, handleClearFilters} = useProductsContext()
     const { data : { results : categoriesData} } = useGetDataAPI(QUERY.CATEGORY_PREDICATE, QUERY.CATEGORY_SIZE);
 
     useEffect(()=>{
@@ -18,10 +18,11 @@ function Products(){
             setFilteredProducts(products.results)
             setFilters(GENERAL.EMPTY_ARRAY)
             setPaginator(paginator)
-
         }
     }, [products, isLoading])
-    
+
+
+
     return (
         <Wrapper flex justify="start">
             <Sidebar className="filters" >
@@ -37,9 +38,19 @@ function Products(){
                             id={category.id}
                             type={category.slugs}
                             onChange={handleFilterProducts}
+                            defaultChecked={false}
                         />
                     ))}                    
-                </Wrapper>                     
+                </Wrapper>
+
+                {
+                (filters && filters.length) ? 
+                    <Wrapper flex justify="center">
+                        <Button className="filters__clear" onClick={handleClearFilters} size={ELEMENT_SIZE.MD}>Clear filters</Button>
+                    </Wrapper>                     
+                    : <Fragment/>
+                }
+          
             </Sidebar>
             <section className="results">
                 {isLoading && 
