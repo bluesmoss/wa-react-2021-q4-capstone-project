@@ -1,11 +1,10 @@
-import { LinkColored } from "./LinkColored";
-import { Slider } from "./Slider";
-import { TextColored } from "./TextColored";
-import { TextGradient } from "./TextGradient";
-import { Wrapper } from "./Wrapper";
-import { Button } from "./Button";
-import { Sidebar } from "./Sidebar"
-import { Checkbox} from "./Checkbox"
-import { Paginator } from "./Paginator";
-
-export { LinkColored, Slider, TextColored, TextGradient, Wrapper, Button, Sidebar, Checkbox, Paginator}
+export { LinkColored } from "./LinkColored";
+export { Slider } from "./Slider";
+export { TextColored } from "./TextColored";
+export { TextGradient } from "./TextGradient";
+export { Wrapper } from "./Wrapper";
+export { Button } from "./Button";
+export { Sidebar } from "./Sidebar"
+export { Checkbox} from "./Checkbox"
+export { Paginator } from "./Paginator";
+export { Gallery } from "./Gallery";
