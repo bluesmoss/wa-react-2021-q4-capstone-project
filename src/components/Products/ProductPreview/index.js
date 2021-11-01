@@ -1,9 +1,13 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { TextColored } from "../../Common"
+import { Button, TextColored, Wrapper } from "../../Common"
 import { StyledProductPreview } from "./styled"
+import { ELEMENT_SIZE } from "../../../utils/constants";
+import cart from '../../../assets/cart.png'
+import { Link } from "react-router-dom";
 
 function ProductPreview({data}){
+    console.log(data);
     return (
             <StyledProductPreview>
                 <img src={data.mainimage.url} alt={data.mainimage.alt} className="product__main-image"/> 
@@ -13,6 +17,14 @@ function ProductPreview({data}){
                         <span>Category: {data.category.slug}</span>
                         <span>Price: <TextColored color={"SECONDARY"}>$</TextColored>{data.price}</span>
                     </div>
+                    <Wrapper flex justify="space-evenly"  className="product__actions">
+                        <button className="product__add-cart">
+                            <img  className="product__cart"  src={cart} alt="cart"/>
+                        </button>
+                        <Link to={`/product/${data.sku}`}>
+                            <Button size={ELEMENT_SIZE.MD} className="product__details" >View details</Button>
+                        </Link>
+                    </Wrapper>
                 </div>                               
             </StyledProductPreview>
 

@@ -34,6 +34,33 @@ const StyledProductPreview = styled.div`
     justify-content: center;
     align-items: center;
 }
+
+.product__actions{
+
+    max-height: 45px;
+    margin: 10px;
+    align-items: center;
+
+    .product__add-cart{
+        padding: 5px;
+        background: none;
+        border: 2px solid ${COLORS.PRIMARY};
+        border-radius: 5px;
+        cursor: pointer;
+
+        :hover{
+            border: 2px solid ${COLORS.SECONDARY};
+    }
+
+    .product__cart{
+        height: 30px;
+    }
+
+    .product__details{
+        padding: 10px 20px;
+        font-weight: normal;
+    }
+}
     
 `;
 
