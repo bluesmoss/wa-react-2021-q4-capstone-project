@@ -1,18 +1,18 @@
 import React, {useEffect, useState} from "react";
-import {productCategories} from '../../mocks/en-us';
 import { Sidebar, Wrapper, Checkbox, TextGradient, Paginator, TextColored} from "../../components/Common"
 import { ProductList, ProductPreview } from "../../components/Products"
 import { useProductsContext } from "../../providers/Products"
 import { Fragment } from "react/cjs/react.production.min";
-import { GENERAL, TEXT_COLOR_TYPES } from "../../utils/constants";
+import { GENERAL, QUERY, TEXT_COLOR_TYPES } from "../../utils/constants";
+import { useGetDataAPI } from "../../utils/hooks/useGetDataAPI";
 
 function Products(){
 
     const { filteredProducts, handleFilterProducts, totalProducts, setFilteredProducts, setFilters, allProducts} = useProductsContext()
     const [loading, setLoading] = useState(true)
-    const { results: categories } = productCategories;
+    const { data : { results : categoriesData} } = useGetDataAPI(QUERY.CATEGORY_PREDICATE, QUERY.CATEGORY_SIZE);
     const totalSearchedProducts = filteredProducts.length;
-    
+
     useEffect(()=>{
         setFilteredProducts(allProducts)
         setFilters(GENERAL.EMPTY_ARRAY)
@@ -31,7 +31,7 @@ function Products(){
                 </Wrapper>
                 <Wrapper className="filters__section">
                     <span className="filters__title">Category</span>
-                    {categories.map((category) => (
+                    {categoriesData && categoriesData.map((category) => (
                         <Checkbox 
                             key={category.id}
                             name= {category.data.name}
