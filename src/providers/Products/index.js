@@ -19,6 +19,7 @@ export const ProductsProvider = ({children}) => {
     const [allProducts, setAllProducts] = useState(GENERAL.EMPTY_ARRAY)
     const [slugs, setSlugs] = useState('')
     const [filterEnabled, setFilterEnabled] = useState(false)
+    const [paginator, setPaginator] = useState(false)
 
     useEffect(() => {
         setFilters( prevFilters => {
@@ -56,6 +57,8 @@ export const ProductsProvider = ({children}) => {
             allProducts,
             setAllProducts,
             setFilters,
+            paginator,
+            setPaginator
         }}>
             {children}
         </ProductsContext.Provider>

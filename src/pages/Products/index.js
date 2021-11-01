@@ -8,14 +8,17 @@ import { useGetDataAPI } from "../../utils/hooks/useGetDataAPI";
 
 function Products(){
     const { data : products, isLoading } = useGetDataAPI(QUERY.PRODUCTS_PREDICATE, QUERY.PRODUCTS_SIZE);
-    const { filteredProducts, handleFilterProducts, setFilteredProducts, setFilters, setAllProducts, allProducts} = useProductsContext()
+    const { filteredProducts, handleFilterProducts, setFilteredProducts, setFilters, setAllProducts, setPaginator} = useProductsContext()
     const { data : { results : categoriesData} } = useGetDataAPI(QUERY.CATEGORY_PREDICATE, QUERY.CATEGORY_SIZE);
 
     useEffect(()=>{
         if(products.results){
+            const {results, ...paginator} = products;
             setAllProducts(products.results)
             setFilteredProducts(products.results)
             setFilters(GENERAL.EMPTY_ARRAY)
+            setPaginator(paginator)
+
         }
     }, [products, isLoading])
     
@@ -58,7 +61,7 @@ function Products(){
                                 />                           
                             ))}                    
                         </ProductList>
-                        <Paginator totalSearched={filteredProducts.length} total={allProducts.length}/>                        
+                        <Paginator/>                        
                     </Fragment>                
                 }
      
