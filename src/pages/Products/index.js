@@ -5,26 +5,25 @@ import { useProductsContext } from "../../providers/Products"
 import { Fragment } from "react/cjs/react.production.min";
 import { ELEMENT_SIZE, GENERAL, QUERY, TEXT_COLOR_TYPES } from "../../utils/constants";
 import { useGetDataAPI } from "../../utils/hooks/useGetDataAPI";
+import { useLocation } from "react-router";
 
 function Products(){
     const { data : products, isLoading } = useGetDataAPI(QUERY.PRODUCTS_PREDICATE, QUERY.PRODUCTS_SIZE);
     const { filteredProducts, handleFilterProducts, setFilteredProducts, setFilters, setAllProducts, setPaginator, filters, handleClearFilters} = useProductsContext()
     const { data : { results : categoriesData} } = useGetDataAPI(QUERY.CATEGORY_PREDICATE, QUERY.CATEGORY_SIZE);
+    const query = new URLSearchParams(useLocation().search)
+    const defaultFilters = (query.get('category')) ? query.get('category').split(',') : GENERAL.EMPTY_ARRAY;  
+
 
     useEffect(()=>{
         if(products.results){
             const {results, ...paginator} = products;
             setAllProducts(products.results)
             setFilteredProducts(products.results)
-            setFilters(GENERAL.EMPTY_ARRAY)
+            setFilters(defaultFilters)
             setPaginator(paginator)
         }
     }, [products, isLoading])
-
-    useEffect(()=>{
-        console.log('hola');
-    }, [])    
-
 
 
     return (
@@ -42,7 +41,7 @@ function Products(){
                             id={category.id}
                             type={category.slugs}
                             onChange={handleFilterProducts}
-                            defaultChecked={false}
+                            defaultFilters={defaultFilters}
                         />
                     ))}                    
                 </Wrapper>

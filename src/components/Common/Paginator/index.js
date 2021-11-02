@@ -27,8 +27,8 @@ function Paginator(){
         
                 { 
                     arrayPages.map((item, index) => (
-                        <Link to={`${pathname}?page=${index+1}`}>
-                         <button className={paginator.page ===index+1 ? 'active' : '' }  key={index}>{index+1}</button>
+                        <Link key={index} to={`${pathname}?page=${index+1}`}>
+                         <button className={paginator.page ===index+1 ? 'active' : '' }>{index+1}</button>
                         </Link>
                        
                     ))
