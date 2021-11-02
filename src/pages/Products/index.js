@@ -62,7 +62,7 @@ function Products(){
                     </Wrapper>
                 }
 
-                {!isLoading && 
+                {(!isLoading && filteredProducts.length) ?
                     <Fragment>
                         <Wrapper padding="10px">
                             <TextGradient color={"PRIMARY"} fontSize="3em">Products</TextGradient>
@@ -77,7 +77,10 @@ function Products(){
                             ))}                    
                         </ProductList>
                         <Paginator/>                        
-                    </Fragment>                
+                    </Fragment> :
+                    <Wrapper flex padding="100px">
+                        <TextColored color={TEXT_COLOR_TYPES.SECONDARY}>No items found</TextColored>
+                    </Wrapper>     
                 }
      
             </section>
