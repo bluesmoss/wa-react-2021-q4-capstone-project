@@ -11,7 +11,7 @@ function Main(){
                 <Route exact path="/" component={Home} />
                 <Route exact path="/home" component={Home} />
                 <Route exact path="/products" component={Products} />
-                <Route path="/product/:productId" component={Product} />
+                <Route exact path="/product/:productId" component={Product} />
                 <Route path="/search" component={Search} />
                 <Route path="*" render={() => <h1>Not found!</h1>} />
             </Switch>

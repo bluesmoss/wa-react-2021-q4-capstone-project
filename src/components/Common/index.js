@@ -8,3 +8,5 @@ export { Sidebar } from "./Sidebar"
 export { Checkbox} from "./Checkbox"
 export { Paginator } from "./Paginator";
 export { Gallery } from "./Gallery";
+export { Modal } from "./Modal";
+export { Search } from "./Search";

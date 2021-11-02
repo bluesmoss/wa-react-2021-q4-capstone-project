@@ -1,22 +1,24 @@
-import React, {Fragment, useEffect} from "react";
+import React, {Fragment, useEffect, useState} from "react";
 import {useLocation} from "react-router-dom";
 import { Paginator, TextColored, TextGradient, Wrapper } from "../../components/Common";
 import { ProductList, ProductPreview } from "../../components/Products";
+import { useHeaderContext } from "../../providers/Header";
 import { useProductsContext } from "../../providers/Products";
 import { GENERAL, TEXT_COLOR_TYPES } from "../../utils/constants";
 import { useSearchData } from "../../utils/hooks/useSearchData";
 
 function Search(){
 
+    const { setOpenModal, searchValue} = useHeaderContext()
+    const [queryString, setQueryString] = useState('');
+    const query = useQuery();
+
     function useQuery() {
         return new URLSearchParams(useLocation().search);
     }
 
-    let query = useQuery();
-    const { filteredProducts, handleFilterProducts, setFilteredProducts, setFilters, setAllProducts, setPaginator, filters, handleClearFilters} = useProductsContext()
-    const { data : products, isLoading } = useSearchData(query.get('q'));
-
-    console.log('lof', products);
+    const { filteredProducts, setFilteredProducts, setFilters, setAllProducts, setPaginator} = useProductsContext()
+    const { data : products, isLoading } = useSearchData(queryString);
 
     useEffect(()=>{
         if(products.results){
@@ -27,6 +29,11 @@ function Search(){
             setPaginator(paginator)
         }
     }, [products, isLoading])
+
+    useEffect(()=>{
+        setOpenModal(false)
+        setQueryString(query.get('q'))
+    }, [searchValue])
 
     return (
         <Fragment>
@@ -40,7 +47,7 @@ function Search(){
                 {(!isLoading && products.results.length) ?
                     <Fragment>
                         <Wrapper padding="10px">
-                            <TextGradient color={"PRIMARY"} fontSize="3em">Results:</TextGradient>
+                            <TextGradient color={"PRIMARY"} fontSize="3em">Results: </TextGradient>
                         </Wrapper>
                         <ProductList>
                             {filteredProducts.map((product, index) => (

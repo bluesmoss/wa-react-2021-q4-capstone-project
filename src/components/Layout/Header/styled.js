@@ -28,11 +28,10 @@ z-index: 3;
       }  
   }
 
-  .header__search-btn{
+  .header__search-button{
     background: none;
     height: 1.7rem;
     width: 40px;
-    background: ${COLORS.SECONDARY};
     border: none;
   }
 
@@ -62,25 +61,8 @@ z-index: 3;
       display: flex;
       align-items: center;
 
-  }
-  
-  .header__search-input{
-      padding: 10px;
-      width: 150px;
-      height: 1.7rem;
-      background: none;
-      border: none;
-      box-sizing: border-box;
-      font-size: 1rem;
-      outline: none;
-      transition: .5s;
-      border: 2px solid ${COLORS.SECONDARY};
-      
-      :hover {
-          width: 220px;
-          color: darkgray;
-          border: 2px solid ${COLORS.SECONDARY};
-      }
+    }
+
   }
 
   @media only screen and (max-width: 768px) {

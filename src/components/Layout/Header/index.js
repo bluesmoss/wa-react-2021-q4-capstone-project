@@ -1,36 +1,19 @@
-import React, {useState} from "react";
+import React from "react";
 import { TextGradient, Wrapper} from "../../Common"
 import { StyledHeader } from "./styled"
 import cart from "../../../assets/cart.png"
 import search from "../../../assets/search.svg"
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useHeaderContext } from "../../../providers/Header";
 
 
 
 function Header(){
+    const { setOpenModal} = useHeaderContext()
 
-    const [searchItem, setSearchItem] = useState('')
-    const [redirect, setRedirect] = useState(false);
-
-    const onSearch = (event) => {
-        const valueToSearch = event.target.value.trim();
-        setSearchItem(valueToSearch)
+    const handleOpenSearch = () => {
+        setOpenModal(true)
     };
-
-    const handleSearch = () => {
-        setRedirect(true)
-    };
-
-    if (redirect) {
-        return (
-            <Redirect
-            to={{
-                pathname: "/search",
-                search: `?q=${searchItem}`,
-            }}
-            />
-        );
-    }    
 
     return (
         <StyledHeader>
@@ -41,12 +24,7 @@ function Header(){
             </Link>
             <Wrapper className="header__actions">
                 <Wrapper className="header__search-wrapper">
-                    <input 
-                        className="header__search-input" 
-                        placeholder="Type something to search..."
-                        onChange={onSearch}
-                    />
-                    <button className="header__search-btn" onClick={handleSearch}>
+                    <button className="header__search-button" onClick={handleOpenSearch}>
                         <img className="header__search-icon"  src={search} alt="search"/>
                     </button>
                 </Wrapper>
