@@ -11,11 +11,8 @@ function Search(){
 
     const { setOpenModal, searchValue} = useHeaderContext()
     const [queryString, setQueryString] = useState('');
-    const query = useQuery();
+    const query = new URLSearchParams(useLocation().search).get('q')
 
-    function useQuery() {
-        return new URLSearchParams(useLocation().search);
-    }
 
     const { filteredProducts, setFilteredProducts, setFilters, setAllProducts, setPaginator} = useProductsContext()
     const { data : products, isLoading } = useSearchData(queryString);
@@ -32,7 +29,7 @@ function Search(){
 
     useEffect(()=>{
         setOpenModal(false)
-        setQueryString(query.get('q'))
+        setQueryString(query)
     }, [searchValue])
 
     return (
