@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { API_BASE_URL } from '../constants';
 import { useLatestAPI } from './useLatestAPI';
 
-export function useGetDataAPI(query, pageSize) {
+export function useGetDataAPI(query, pageSize, activePage) {
+  const currentPage = activePage ? activePage : 1;
   const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
   const [ results, setResults] = useState(() => ({
     data: {},
@@ -20,7 +21,7 @@ export function useGetDataAPI(query, pageSize) {
         setResults({ data: {}, isLoading: true });
 
         const response = await fetch(
-          `${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent(query)}&lang=en-us&pageSize=${pageSize}`,
+          `${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent(query)}&lang=en-us&pageSize=${pageSize}&page=${currentPage}`,
           {
             signal: controller.signal,
           }

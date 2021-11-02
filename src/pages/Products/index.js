@@ -21,6 +21,10 @@ function Products(){
         }
     }, [products, isLoading])
 
+    useEffect(()=>{
+        console.log('hola');
+    }, [])    
+
 
 
     return (

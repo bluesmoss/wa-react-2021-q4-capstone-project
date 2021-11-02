@@ -21,6 +21,11 @@ const StyledPaginator = styled.section`
                 color: ${COLORS.LIGHT_BASE};
             }
         }
+
+        .active{
+            background: ${COLORS.PRIMARY};
+            color: ${COLORS.LIGHT_BASE};
+        }
     }
 `;
 

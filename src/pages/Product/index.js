@@ -10,16 +10,6 @@ import { StyledProduct } from "./styled"
 function Product(){
     const { productId } = useParams();
     const { data : product } = useProductDetails(productId);
-
-   
-   
-
-    useEffect(() => {
-        if(product){
-            console.log('objedsct', product);
-        }
-    })
-
      
     return (
         <StyledProduct>
