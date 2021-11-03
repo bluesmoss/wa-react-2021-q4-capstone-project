@@ -2,17 +2,19 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { StyledCategoryList } from "./styled"
 import { CategoryItem }  from "../CategoryItem"
+import { Link } from "react-router-dom";
 
 function CategoryList({categories}){
-
     return (
         <StyledCategoryList>
             {categories.map((category, index) => (
-                <CategoryItem 
-                    key={category.id}
-                    image= {category.data.main_image}
-                    name= {category.data.name}
-                />                           
+                <Link  key={category.id} to={`products?category=${category.slugs}`}>
+                    <CategoryItem 
+                        image= {category.data.main_image}
+                        name= {category.data.name}
+                    />                   
+                </Link>
+                       
             ))}
         </StyledCategoryList>
     )

@@ -4,10 +4,16 @@ import { StyledHeader } from "./styled"
 import cart from "../../../assets/cart.png"
 import search from "../../../assets/search.svg"
 import { Link } from "react-router-dom";
+import { useHeaderContext } from "../../../providers/Header";
 
 
 
 function Header(){
+    const { setOpenModal} = useHeaderContext()
+
+    const handleOpenSearch = () => {
+        setOpenModal(true)
+    };
 
     return (
         <StyledHeader>
@@ -18,11 +24,9 @@ function Header(){
             </Link>
             <Wrapper className="header__actions">
                 <Wrapper className="header__search-wrapper">
-                    <input 
-                        className="header__search-input" 
-                        placeholder="Type something to search..."
-                    />
-                    <img className="header__search-icon"  src={search} alt="search"/>
+                    <button className="header__search-button" onClick={handleOpenSearch}>
+                        <img className="header__search-icon"  src={search} alt="search"/>
+                    </button>
                 </Wrapper>
                 <img  className="header__cart"  src={cart} alt="cart"/>
             </Wrapper>            

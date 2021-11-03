@@ -2,12 +2,13 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { StyledCheckbox } from './styled'
 
-function Checkbox(props){
+function Checkbox({ id, type, onChange, name, defaultFilters }){
 
+    const checked = JSON.stringify(defaultFilters) === JSON.stringify(type)
     return (
         <StyledCheckbox>
-            <input type="checkbox"  id={props.id} name={props.type} onChange={props.onChange}/>
-            <label htmlFor={props.id}>{props.name}</label>
+            <input type="checkbox"  id={id} name={type} onChange={onChange} defaultChecked={checked}/>
+            <label htmlFor={id}>{name}</label>
         </StyledCheckbox>
     )
 }
@@ -15,6 +16,9 @@ function Checkbox(props){
 Checkbox.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    type: PropTypes.array.isRequired,
+    onChange:  PropTypes.func.isRequired,
+    defaultFilters:  PropTypes.array.isRequired,    
 };
 
 

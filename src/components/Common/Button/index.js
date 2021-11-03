@@ -5,7 +5,7 @@ import { StyledButton } from './styled'
 function Button(props){
 
     return (
-        <StyledButton settings={props} className={props.className ? props.className : ''} >
+        <StyledButton settings={props} className={props.className ? props.className : ''} onClick={props.onClick ? props.onClick : () => {}}>
             {props.children}
         </StyledButton>      
     )

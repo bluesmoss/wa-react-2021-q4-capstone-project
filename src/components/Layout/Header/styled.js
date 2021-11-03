@@ -28,12 +28,18 @@ z-index: 3;
       }  
   }
 
+  .header__search-button{
+    background: none;
+    height: 1.7rem;
+    width: 40px;
+    border: none;
+  }
+
   .header__search-icon{
       height: 24px;
       width: 24px;
       top: 30px;
       position: absolute;
-      right: 80px;        
       transform: translate(-50%,-50%);
       transition: .2s;
       cursor: pointer;    
@@ -52,28 +58,11 @@ z-index: 3;
   }
 
   .header__search-wrapper{
-      :hover img{
-          display: none;
-      }
-  }
-  
-  .header__search-input{
-      padding: 10px;
-      width: 20px;
-      height: 1.7rem;
-      background: none;
-      border: none;
-      box-sizing: border-box;
-      font-size: 1rem;
-      outline: none;
-      transition: .5s;  
-      
-      :hover {
-          width: 220px;
-          border-radius: 10px;
-          color: darkgray;
-          border: 2px solid ${COLORS.SECONDARY};
-      }
+      display: flex;
+      align-items: center;
+
+    }
+
   }
 
   @media only screen and (max-width: 768px) {

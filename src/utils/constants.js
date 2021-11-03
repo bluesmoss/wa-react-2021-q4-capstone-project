@@ -35,6 +35,14 @@ const GENERAL = {
     SINGLE_ELEMENT: 1,
     DELAY_DATA: 2000
 }
-  
 
-export { COLORS, TEXT_COLOR_TYPES, STYLES_SIZE, ELEMENT_SIZE, GENERAL }
+const QUERY = {
+    CATEGORY_PREDICATE : '[[at(document.type, "category")]]',
+    CATEGORY_SIZE : '30',
+    PRODUCTS_PREDICATE : '[[at(document.type, "product")]]',
+    PRODUCTS_SIZE : '12',    
+}
+
+export const API_BASE_URL = 'https://wizeline-academy.cdn.prismic.io/api/v2';
+
+export { COLORS, TEXT_COLOR_TYPES, STYLES_SIZE, ELEMENT_SIZE, GENERAL, QUERY }
