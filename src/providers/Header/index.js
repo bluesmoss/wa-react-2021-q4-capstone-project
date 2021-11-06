@@ -1,5 +1,4 @@
-import React, {createContext, useState, useContext, useEffect} from "react";
-import { GENERAL } from "../../utils/constants";
+import React, {createContext, useContext} from "react";
 
 const HeaderContext = createContext()
 

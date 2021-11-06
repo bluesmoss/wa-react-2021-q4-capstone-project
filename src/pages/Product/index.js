@@ -1,7 +1,6 @@
-import React, {Fragment,useEffect} from "react";
-import { Slider, Button, Wrapper, TextColored, Gallery } from "../../components/Common"
-import { ELEMENT_SIZE, QUERY } from "../../utils/constants";
-import { Link, useParams} from "react-router-dom";
+import React from "react";
+import { Wrapper, TextColored, Gallery } from "../../components/Common"
+import { useParams} from "react-router-dom";
 import { useProductDetails } from "../../utils/hooks/useProductDetails";
 import  cart from "../../assets/cart.png"
 import { StyledProduct } from "./styled"

@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import PropTypes from 'prop-types';
+import React from "react";
 import { StyledPaginator } from './styled'
 import { Wrapper } from "..";
 import { useProductsContext } from "../../../providers/Products";
@@ -7,7 +6,7 @@ import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 
 function Paginator(){
-    const { pathname, search } = useLocation();
+    const { pathname } = useLocation();
 
     const { filteredProducts, allProducts, paginator} = useProductsContext()
     const arrayPages = [...Array(paginator['total_pages']).keys()]
@@ -45,9 +44,5 @@ function Paginator(){
         </StyledPaginator>
     )
 }
-
-Paginator.propTypes = {
-};
-
 
 export { Paginator }
