@@ -56,12 +56,14 @@ function Search(){
                             ))}                    
                         </ProductList>
                         <Paginator/>                        
-                    </Fragment>  :     
-                    
-                    <Wrapper flex padding="100px">
-                        <TextColored color={TEXT_COLOR_TYPES.SECONDARY}>No items Found</TextColored>
-                    </Wrapper> 
+                    </Fragment> : null
                 }
+
+                {(!isLoading && !products.results.length) ?
+                    <Wrapper flex padding="100px">
+                        <TextColored color={TEXT_COLOR_TYPES.SECONDARY}>No items found</TextColored>
+                    </Wrapper> : null
+                }                      
 
                        
      

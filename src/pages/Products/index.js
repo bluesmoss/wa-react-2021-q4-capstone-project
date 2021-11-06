@@ -77,11 +77,14 @@ function Products(){
                             ))}                    
                         </ProductList>
                         <Paginator/>                        
-                    </Fragment> :
+                    </Fragment> : null
+                }
+
+                {(!isLoading && !filteredProducts.length) ?
                     <Wrapper flex padding="100px">
                         <TextColored color={TEXT_COLOR_TYPES.SECONDARY}>No items found</TextColored>
-                    </Wrapper>     
-                }
+                    </Wrapper> : null
+                }                
      
             </section>
         </Wrapper>
