@@ -25,12 +25,12 @@ function Search(){
             setFilters(GENERAL.EMPTY_ARRAY)
             setPaginator(paginator)
         }
-    }, [products, isLoading])
+    }, [products, isLoading, setAllProducts, setFilteredProducts, setFilters, setPaginator])
 
     useEffect(()=>{
         setOpenModal(false)
         setQueryString(query)
-    }, [searchValue])
+    }, [query, searchValue, setOpenModal])
 
     return (
         <Fragment>
