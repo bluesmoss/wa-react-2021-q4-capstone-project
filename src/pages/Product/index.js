@@ -14,19 +14,21 @@ function Product(){
     const { data : product, isLoading} = useProductDetails(productId);
     const [ stock, setStock ] = useState(GENERAL.PRODUCT_EMPTY)
     const [ quantity, seQuantity ] = useState(GENERAL.SINGLE_ELEMENT)
-    const { setCartItems } = useHeaderContext()
+    const { setCartItems, setCurrentProduct} = useHeaderContext()
 
     const handleAddCart = () => { 
         if (stock >= GENERAL.PRODUCT_EMPTY){
             setStock((prevStock) => {
                 return prevStock - quantity
             })
+
+            setCartItems((prevCartItems) => {
+                return prevCartItems + quantity
+            })
+
+            setCurrentProduct({id: productId, data: product, quantity: quantity})
         }
 
-        setCartItems((prevCartItems) => {
-            return prevCartItems + quantity
-        })
-        
     }
 
     const handleControls = (operation) => { 
@@ -47,8 +49,7 @@ function Product(){
         if(product.stock){
             setStock(product.stock)
         }
-        
-    }, [product]) 
+    }, [product])
 
     return (
 

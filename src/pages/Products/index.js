@@ -25,7 +25,6 @@ function Products(){
         }
     }, [products, setAllProducts, setFilteredProducts, setFilters, defaultFilters, setPaginator])
 
-
     return (
         <Wrapper flex justify="start">
             <Sidebar className="filters" >

@@ -35,7 +35,8 @@ const GENERAL = {
     EMPTY_ARRAY: [],
     SINGLE_ELEMENT: 1,
     DELAY_DATA: 2000,
-    PRODUCT_EMPTY: 0
+    PRODUCT_EMPTY: 0,
+    EMPTY_OBJECT: {},
 }
 
 const QUERY = {
