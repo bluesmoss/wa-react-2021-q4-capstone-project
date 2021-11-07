@@ -50,6 +50,13 @@ const StyledProductPreview = styled.div`
 
         :hover{
             border: 2px solid ${COLORS.SECONDARY};
+        }
+
+        &.disabled{
+                border: 2px solid ${COLORS.GREY};
+                background:  ${COLORS.GREY_LIGHT};
+                cursor: not-allowed;
+        }
     }
 
     .product__cart{

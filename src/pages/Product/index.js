@@ -6,6 +6,7 @@ import  cart from "../../assets/cart.png"
 import { StyledProduct } from "./styled"
 import { GENERAL, TEXT_COLOR_TYPES } from "../../utils/constants";
 import { Fragment } from "react/cjs/react.production.min";
+import { useHeaderContext } from "../../providers/Header";
 
 
 function Product(){
@@ -13,13 +14,18 @@ function Product(){
     const { data : product, isLoading} = useProductDetails(productId);
     const [ stock, setStock ] = useState(GENERAL.PRODUCT_EMPTY)
     const [ quantity, seQuantity ] = useState(GENERAL.SINGLE_ELEMENT)
+    const { setCartItems } = useHeaderContext()
 
     const handleAddCart = () => { 
         if (stock >= GENERAL.PRODUCT_EMPTY){
             setStock((prevStock) => {
-                return prevStock - GENERAL.SINGLE_ELEMENT
+                return prevStock - quantity
             })
         }
+
+        setCartItems((prevCartItems) => {
+            return prevCartItems + quantity
+        })
         
     }
 
@@ -43,7 +49,7 @@ function Product(){
             console.log('initial', product.stock);
         }
         
-    }, [product])
+    }, [product]) 
 
     return (
 

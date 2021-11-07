@@ -1,4 +1,5 @@
 import React, {createContext, useContext} from "react";
+import { GENERAL } from "../../utils/constants";
 
 const HeaderContext = createContext()
 
@@ -15,6 +16,7 @@ export const useHeaderContext = () => {
 export const HeaderProvider = ({children}) => {
     const [searchValue, setSearchValue] = React.useState('')
     const [openModal, setOpenModal] = React.useState(false)
+    const [cartItems, setCartItems] = React.useState(GENERAL.PRODUCT_EMPTY)
  
   
     return (
@@ -23,6 +25,8 @@ export const HeaderProvider = ({children}) => {
             setOpenModal,
             searchValue,
             setSearchValue,
+            cartItems,
+            setCartItems
         }}>
             {children}
         </HeaderContext.Provider>
