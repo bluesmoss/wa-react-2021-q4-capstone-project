@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Wrapper, TextColored, Gallery, QuantitySelector } from "../../components/Common"
 import { useParams} from "react-router-dom";
 import { useProductDetails } from "../../utils/hooks/useProductDetails";
-import  cart from "../../assets/cart.png"
 import { StyledProduct } from "./styled"
 import { GENERAL, TEXT_COLOR_TYPES } from "../../utils/constants";
 import { Fragment } from "react/cjs/react.production.min";
 import { useHeaderContext } from "../../providers/Header";
+import { CartButton } from "../../components/Products/CartButton";
 
 
 function Product(){
@@ -46,7 +46,6 @@ function Product(){
     useEffect(()=> {
         if(product.stock){
             setStock(product.stock)
-            console.log('initial', product.stock);
         }
         
     }, [product]) 
@@ -72,9 +71,7 @@ function Product(){
                         <p className="product__description">{product.short_description}</p>    
                         <Wrapper flex justify="start" className="product__add">
                             <QuantitySelector quantity={quantity} handleControls={handleControls}/>
-                            <button className={stock===GENERAL.PRODUCT_EMPTY ? "product__add-cart disabled":"product__add-cart"} onClick={handleAddCart} disabled={stock===GENERAL.PRODUCT_EMPTY ? true : false}>
-                                <img  className="product__cart"  src={cart} alt="cart"/>
-                            </button>                  
+                            <CartButton stock={stock} handleAddCart={handleAddCart} />                
                         </Wrapper>
                         <Wrapper>
                             <label>Stock:</label> {stock}
@@ -117,10 +114,7 @@ function Product(){
             </StyledProduct>            
 
         }
-        
         </Fragment>
- 
-
     )
 }
 export { Product }

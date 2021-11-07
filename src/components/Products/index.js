@@ -1,5 +1,5 @@
-import { FeaturedProducts } from "./FeaturedProducts";
-import { ProductList } from "./ProductList";
-import { ProductPreview } from "./ProductPreview";
+export { FeaturedProducts } from "./FeaturedProducts";
+export { ProductList } from "./ProductList";
+export { ProductPreview } from "./ProductPreview";
+export { CartButton } from "./CartButton";
 
-export { FeaturedProducts, ProductList, ProductPreview}
