@@ -5,8 +5,8 @@ import { useProductDetails } from "../../utils/hooks/useProductDetails";
 import { StyledProduct } from "./styled"
 import { GENERAL, OPERATIONS, TEXT_COLOR_TYPES } from "../../utils/constants";
 import { Fragment } from "react/cjs/react.production.min";
-import { useHeaderContext } from "../../providers/Header";
 import { CartButton } from "../../components/Products/CartButton";
+import { useCartContext } from "../../providers/Cart";
 
 
 function Product(){
@@ -14,7 +14,8 @@ function Product(){
     const { data : product, isLoading} = useProductDetails(productId);
     const [ stock, setStock ] = useState(GENERAL.PRODUCT_EMPTY)
     const [ quantity, seQuantity ] = useState(GENERAL.SINGLE_ELEMENT)
-    const { setCartItems, setCurrentProduct} = useHeaderContext()
+    const { setCartItems, setCurrentProduct} = useCartContext()
+
 
     const handleAddCart = () => { 
         if (stock >= GENERAL.PRODUCT_EMPTY){

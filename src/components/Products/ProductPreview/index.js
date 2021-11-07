@@ -4,11 +4,11 @@ import { Button, TextColored, Wrapper } from "../../Common"
 import { StyledProductPreview } from "./styled"
 import { ELEMENT_SIZE, GENERAL } from "../../../utils/constants";
 import { Link } from "react-router-dom";
-import { useHeaderContext } from "../../../providers/Header";
 import { CartButton } from "../CartButton";
+import { useCartContext } from "../../../providers/Cart";
 
 function ProductPreview({data, id}){
-    const { setCartItems } = useHeaderContext()
+    const { setCartItems } = useCartContext()
     const [ stock, setStock ] = useState(GENERAL.PRODUCT_EMPTY)
 
     const handleAddItem = () => {

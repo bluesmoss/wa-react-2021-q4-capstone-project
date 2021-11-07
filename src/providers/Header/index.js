@@ -1,5 +1,4 @@
-import React, {createContext, useContext, useEffect} from "react";
-import { GENERAL, OPERATIONS } from "../../utils/constants";
+import React, {createContext, useContext} from "react";
 
 const HeaderContext = createContext()
 
@@ -16,45 +15,6 @@ export const useHeaderContext = () => {
 export const HeaderProvider = ({children}) => {
     const [searchValue, setSearchValue] = React.useState('')
     const [openModal, setOpenModal] = React.useState(false)
-    const [cartItems, setCartItems] = React.useState(GENERAL.PRODUCT_EMPTY)
-    const [itemsInCart, setItemsInCart] = React.useState([])
-    const [currentProduct, setCurrentProduct] = React.useState({})
-
-    useEffect(() => {
-        if (Object.keys(currentProduct).length){
-            setItemsInCart(prevItems => {
-                
-                const exist = [...prevItems].find((element) => {
-                    return element.id === currentProduct.id
-                })
-
-                if(exist){
-                    const newItems = [...prevItems].map(element => {
-                        if (element.id ===  currentProduct.id) {
-                            const newCount =  (currentProduct.operation === OPERATIONS.ADD) ? element.quantity + currentProduct.quantity : currentProduct.quantity;
-                            return {
-                                ...element,
-                                quantity: newCount,
-                                subtotal: newCount * currentProduct.data.price
-                            };                            
-                        }
-                        return element;
-                    })
-                    return [...newItems]
-                }
-                else{
-                    return [...prevItems, currentProduct]
-                }
-            })
-        }
-
-
-    }, [cartItems, currentProduct])    
-    
-    useEffect(() => {
-        console.log('change itemsInCart', itemsInCart);
-
-    }, [ itemsInCart])
 
     return (
         <HeaderContext.Provider value={{
@@ -62,12 +22,6 @@ export const HeaderProvider = ({children}) => {
             setOpenModal,
             searchValue,
             setSearchValue,
-            cartItems,
-            setCartItems,
-            itemsInCart,
-            setItemsInCart,
-            currentProduct,
-            setCurrentProduct
         }}>
             {children}
         </HeaderContext.Provider>
