@@ -28,7 +28,7 @@ function Product(){
             seQuantity((prevQuantity) => {
                 let result = prevQuantity;
                 if (operation === 'rest') {
-                    result =  prevQuantity > GENERAL.SINGLE_ELEMENT ? prevQuantity - GENERAL.SINGLE_ELEMENT : GENERAL.SINGLE_ELEMENT;
+                    result =  prevQuantity > GENERAL.PRODUCT_EMPTY ? prevQuantity - GENERAL.SINGLE_ELEMENT : GENERAL.PRODUCT_EMPTY;
                 } else {
                     result = prevQuantity < stock ? prevQuantity + GENERAL.SINGLE_ELEMENT : stock;
                 }
