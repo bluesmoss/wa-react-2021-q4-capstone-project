@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Wrapper, TextColored, Gallery } from "../../components/Common"
+import { Wrapper, TextColored, Gallery, QuantitySelector } from "../../components/Common"
 import { useParams} from "react-router-dom";
 import { useProductDetails } from "../../utils/hooks/useProductDetails";
 import  cart from "../../assets/cart.png"
@@ -71,13 +71,7 @@ function Product(){
                         <span className="product__price">${product.price}</span>
                         <p className="product__description">{product.short_description}</p>    
                         <Wrapper flex justify="start" className="product__add">
-                            <div className="product__number">
-                                <input readOnly={true} className="product__quantity" type="number" value={quantity}/>
-                                <div className="product_quantity_button">
-                                    <span onClick={() => { handleControls('add')} } className="product__quantity-controls">{"<"}</span>
-                                    <span onClick={() => { handleControls('rest')} } className="product__quantity-controls">{">"}</span>
-                                </div>
-                            </div>
+                            <QuantitySelector quantity={quantity} handleControls={handleControls}/>
                             <button className={stock===GENERAL.PRODUCT_EMPTY ? "product__add-cart disabled":"product__add-cart"} onClick={handleAddCart} disabled={stock===GENERAL.PRODUCT_EMPTY ? true : false}>
                                 <img  className="product__cart"  src={cart} alt="cart"/>
                             </button>                  
