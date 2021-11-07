@@ -23,7 +23,7 @@ function Products(){
             setFilters(defaultFilters)
             setPaginator(paginator)
         }
-    }, [products, isLoading, setAllProducts, setFilteredProducts, setFilters, defaultFilters, setPaginator])
+    }, [products, setAllProducts, setFilteredProducts, setFilters, defaultFilters, setPaginator])
 
 
     return (
