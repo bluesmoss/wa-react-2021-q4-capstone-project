@@ -1,5 +1,5 @@
 import React, {createContext, useContext, useEffect} from "react";
-import { GENERAL } from "../../utils/constants";
+import { GENERAL, OPERATIONS } from "../../utils/constants";
 
 const HeaderContext = createContext()
 
@@ -24,16 +24,18 @@ export const HeaderProvider = ({children}) => {
         if (Object.keys(currentProduct).length){
             setItemsInCart(prevItems => {
                 
-                const exist = [...prevItems].find((element, index) => {
+                const exist = [...prevItems].find((element) => {
                     return element.id === currentProduct.id
                 })
 
                 if(exist){
                     const newItems = [...prevItems].map(element => {
                         if (element.id ===  currentProduct.id) {
+                            const newCount =  (currentProduct.operation === OPERATIONS.ADD) ? element.quantity + currentProduct.quantity : currentProduct.quantity;
                             return {
                                 ...element,
-                                quantity: element.quantity + currentProduct.quantity
+                                quantity: newCount,
+                                subtotal: newCount * currentProduct.data.price
                             };                            
                         }
                         return element;

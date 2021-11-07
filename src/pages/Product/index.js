@@ -3,7 +3,7 @@ import { Wrapper, TextColored, Gallery, QuantitySelector } from "../../component
 import { useParams} from "react-router-dom";
 import { useProductDetails } from "../../utils/hooks/useProductDetails";
 import { StyledProduct } from "./styled"
-import { GENERAL, TEXT_COLOR_TYPES } from "../../utils/constants";
+import { GENERAL, OPERATIONS, TEXT_COLOR_TYPES } from "../../utils/constants";
 import { Fragment } from "react/cjs/react.production.min";
 import { useHeaderContext } from "../../providers/Header";
 import { CartButton } from "../../components/Products/CartButton";
@@ -26,7 +26,8 @@ function Product(){
                 return prevCartItems + quantity
             })
 
-            setCurrentProduct({id: productId, data: product, quantity: quantity})
+            const subtotal = product.price * quantity;
+            setCurrentProduct({id: productId, data: product, quantity: quantity, subtotal: subtotal, operation: OPERATIONS.ADD})
         }
 
     }
@@ -48,6 +49,7 @@ function Product(){
     useEffect(()=> {
         if(product.stock){
             setStock(product.stock)
+            console.log('product', product);
         }
     }, [product])
 
