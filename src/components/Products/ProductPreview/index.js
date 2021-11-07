@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { Button, TextColored, Wrapper } from "../../Common"
 import { StyledProductPreview } from "./styled"
 import { ELEMENT_SIZE, GENERAL } from "../../../utils/constants";
-import cart from '../../../assets/cart.png'
 import { Link } from "react-router-dom";
 import { useHeaderContext } from "../../../providers/Header";
+import { CartButton } from "../CartButton";
 
 function ProductPreview({data, id}){
     const { setCartItems } = useHeaderContext()
@@ -40,9 +40,7 @@ function ProductPreview({data, id}){
                         <span>Price: <TextColored color={"SECONDARY"}>$</TextColored>{data.price}</span>
                     </div>
                     <Wrapper flex justify="space-evenly"  className="product__actions">
-                        <button className={stock===GENERAL.PRODUCT_EMPTY ? "product__add-cart disabled":"product__add-cart"} disabled={stock===GENERAL.PRODUCT_EMPTY ? true : false} onClick={handleAddItem}>
-                            <img  className="product__cart"  src={cart} alt="cart"/>
-                        </button>
+                        <CartButton stock={stock} handleAddCart={handleAddItem} />
                         <Link to={`/product/${id}`}>
                             <Button size={ELEMENT_SIZE.MD} className="product__details" >View details</Button>
                         </Link>
