@@ -17,6 +17,7 @@ export const CartProvider = ({children}) => {
     const [cartItems, setCartItems] = React.useState(GENERAL.PRODUCT_EMPTY)
     const [itemsInCart, setItemsInCart] = React.useState([])
     const [currentProduct, setCurrentProduct] = React.useState({})
+    const [total, setTotal] = React.useState(0)
 
     useEffect(() => {
         if (Object.keys(currentProduct).length){
@@ -51,8 +52,19 @@ export const CartProvider = ({children}) => {
     
     useEffect(() => {
         console.log('change itemsInCart', itemsInCart);
-
+        setTotal( prevTotal => {
+            let totalUpdated = 0;
+            itemsInCart.forEach(element => {
+                totalUpdated += element.subtotal
+            })
+            return totalUpdated
+        })
     }, [ itemsInCart])
+
+
+    useEffect(() => {
+        console.log('nne total', total);
+    }, [ total])    
 
     return (
         <CartContext.Provider value={{
@@ -61,7 +73,9 @@ export const CartProvider = ({children}) => {
             itemsInCart,
             setItemsInCart,
             currentProduct,
-            setCurrentProduct
+            setCurrentProduct,
+            total,
+            setTotal
         }}>
             {children}
         </CartContext.Provider>
