@@ -12,6 +12,7 @@ function Product(){
     const { productId } = useParams();
     const { data : product, isLoading} = useProductDetails(productId);
     const [ stock, setStock ] = useState(GENERAL.PRODUCT_EMPTY)
+    const [ quantity, seQuantity ] = useState(GENERAL.SINGLE_ELEMENT)
 
     const handleAddCart = () => { 
         if (stock >= GENERAL.PRODUCT_EMPTY){
@@ -21,6 +22,20 @@ function Product(){
         }
         
     }
+
+    const handleControls = (operation) => { 
+        if (quantity >= GENERAL.PRODUCT_EMPTY){
+            seQuantity((prevQuantity) => {
+                let result = prevQuantity;
+                if (operation === 'rest') {
+                    result =  prevQuantity > GENERAL.SINGLE_ELEMENT ? prevQuantity - GENERAL.SINGLE_ELEMENT : GENERAL.SINGLE_ELEMENT;
+                } else {
+                    result = prevQuantity < stock ? prevQuantity + GENERAL.SINGLE_ELEMENT : stock;
+                }
+                return result
+            })
+        }
+    }   
 
     useEffect(()=> {
         if(product.stock){
@@ -51,16 +66,19 @@ function Product(){
                         <p className="product__description">{product.short_description}</p>    
                         <Wrapper flex justify="start" className="product__add">
                             <div className="product__number">
-                                <input className="product__quantity" min={GENERAL.SINGLE_ELEMENT} max={stock} step={GENERAL.SINGLE_ELEMENT} type="number"/>
+                                <input readOnly={true} className="product__quantity" type="number" value={quantity}/>
                                 <div className="product_quantity_button">
-                                    <span className="product__quantity-controls">{"<"}</span>
-                                    <span className="product__quantity-controls">{">"}</span>
+                                    <span onClick={() => { handleControls('add')} } className="product__quantity-controls">{"<"}</span>
+                                    <span onClick={() => { handleControls('rest')} } className="product__quantity-controls">{">"}</span>
                                 </div>
                             </div>
                             <button className={stock===GENERAL.PRODUCT_EMPTY ? "product__add-cart disabled":"product__add-cart"} onClick={handleAddCart} disabled={stock===GENERAL.PRODUCT_EMPTY ? true : false}>
                                 <img  className="product__cart"  src={cart} alt="cart"/>
                             </button>                  
-                        </Wrapper>                    
+                        </Wrapper>
+                        <Wrapper>
+                            <label>Stock:</label> {stock}
+                        </Wrapper>                                            
                         <Wrapper>
                             <label>SKU:</label> {product.sku}
                         </Wrapper>                    
