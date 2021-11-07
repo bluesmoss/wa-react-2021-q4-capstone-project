@@ -49,7 +49,6 @@ function Product(){
     useEffect(()=> {
         if(product.stock){
             setStock(product.stock)
-            console.log('product', product);
         }
     }, [product])
 
