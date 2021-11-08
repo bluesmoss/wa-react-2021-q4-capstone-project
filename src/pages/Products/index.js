@@ -8,10 +8,12 @@ import { useGetDataAPI } from "../../utils/hooks/useGetDataAPI";
 import { useLocation } from "react-router";
 
 function Products(){
-    const { data : products, isLoading } = useGetDataAPI(QUERY.PRODUCTS_PREDICATE, QUERY.PRODUCTS_SIZE);
+    const query = new URLSearchParams(useLocation().search)
+    const currentPage = (query.get('page')) ? query.get('page') : GENERAL.DEFAULT_PAGE; 
+    const { data : products, isLoading } = useGetDataAPI(QUERY.PRODUCTS_PREDICATE, QUERY.PRODUCTS_SIZE, currentPage);
     const { filteredProducts, handleFilterProducts, setFilteredProducts, setFilters, setAllProducts, setPaginator, filters, handleClearFilters} = useProductsContext()
     const { data : { results : categoriesData} } = useGetDataAPI(QUERY.CATEGORY_PREDICATE, QUERY.CATEGORY_SIZE);
-    const query = new URLSearchParams(useLocation().search)
+    
     const defaultFilters = (query.get('category')) ? query.get('category').split(',') : GENERAL.EMPTY_ARRAY;  
 
 
