@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { COLORS } from "../../utils/constants";
 
 const StyledCart = styled.div`
     display: flex;
@@ -8,6 +7,10 @@ const StyledCart = styled.div`
 
     .cart__wrapper{
         width: 992px;
+    }
+
+    .cart__empty{
+        align-items: center;
     }
 `;
 
