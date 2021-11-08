@@ -37,7 +37,8 @@ const GENERAL = {
     DELAY_DATA: 2000,
     PRODUCT_EMPTY: 0,
     EMPTY_OBJECT: {},
-    DECIMAL_TO_SHOW: 2
+    DECIMAL_TO_SHOW: 2,
+    DEFAULT_PAGE: 1,
 }
 
 const OPERATIONS = {
