@@ -9,30 +9,50 @@ import { GENERAL, OPERATIONS } from "../../../utils/constants";
 
 
 function Table({checkout}){
-    const { itemsInCart, setCartItems, setCurrentProduct, handleRemove } = useCartContext()
+    const { itemsInCart, setCartItems, setCurrentProduct } = useCartContext()
 
     const handleControls = (operation, productId) => {
         const product = itemsInCart.find((element) => {
             return element.id === productId
         })
         const productQuantity = product['quantity'];
-
-        if (operation === OPERATIONS.ADD) {
-            product['quantity'] = productQuantity < product['data'].stock ? productQuantity + GENERAL.SINGLE_ELEMENT : product['data'].stock;
-        } else {
-            product['quantity']  =  productQuantity > GENERAL.PRODUCT_EMPTY ? productQuantity - GENERAL.SINGLE_ELEMENT : GENERAL.PRODUCT_EMPTY;
-        }
+        const stock =  product['data'].stock
+        const quantityUpdated = getQuantity({ operation, stock, productQuantity})
         product['operation'] = OPERATIONS.UPDATE
+        product['quantity']  =  quantityUpdated
 
         setCurrentProduct(product)
 
         setCartItems(prevCartItem => {
-            const cartItemUpdated = (operation === OPERATIONS.ADD) ? prevCartItem + GENERAL.SINGLE_ELEMENT : prevCartItem - GENERAL.SINGLE_ELEMENT
+            let cartItemUpdated = (operation === OPERATIONS.ADD) ? prevCartItem + GENERAL.SINGLE_ELEMENT : prevCartItem - GENERAL.SINGLE_ELEMENT
+            
+            if ( operation === OPERATIONS.REMOVE){
+                cartItemUpdated = prevCartItem - productQuantity
+            }
+
             return cartItemUpdated
         })
-    
-
     }
+
+
+
+    const getQuantity = ({ operation, stock, productQuantity}) => {
+
+        const quantityOperation = {
+            'add': function () {
+            return productQuantity < stock ? productQuantity + GENERAL.SINGLE_ELEMENT : stock;;
+            },
+            'rest': function () {
+            return productQuantity > GENERAL.PRODUCT_EMPTY ? productQuantity - GENERAL.SINGLE_ELEMENT : GENERAL.PRODUCT_EMPTY;
+            },
+            'remove': function () {
+            return  GENERAL.PRODUCT_EMPTY;
+            }
+        };
+
+        return quantityOperation[operation]();
+    }
+
 
     return (
 
@@ -48,6 +68,8 @@ function Table({checkout}){
                 </thead>
                 <tbody>
                     { itemsInCart.map((item) => (
+
+                        item.quantity > GENERAL.PRODUCT_EMPTY &&
                         <tr key={item.id}>
                             <th>
                                 <Link  className="table__product"  to={`/product/${item.id}`}>
@@ -64,7 +86,7 @@ function Table({checkout}){
                             </th>
                             <th>{item.subtotal.toFixed(GENERAL.DECIMAL_TO_SHOW)}</th>
                             <th className={checkout ? "hide": ""}>
-                                <button className="table__remove" onClick={()=> handleRemove(item.id)}>
+                                <button className="table__remove" onClick={()=> handleControls(OPERATIONS.REMOVE, item.id)}>
                                     <img className="table__remove-button" src={remove} alt="remove"/>
                                 </button>
                             </th>

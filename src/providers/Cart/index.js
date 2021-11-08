@@ -18,19 +18,6 @@ export const CartProvider = ({children}) => {
     const [itemsInCart, setItemsInCart] = React.useState([])
     const [currentProduct, setCurrentProduct] = React.useState({})
     const [total, setTotal] = React.useState(0)
-
-    const handleRemove = productId => {
-        
-        const itemToRemove = itemsInCart.find((element) => {
-            return element.id === productId
-        })
-        
-        setCartItems((prevNumber) => {
-            return prevNumber - itemToRemove.quantity
-        })
-
-        console.log('itemToRemove', itemToRemove.quantity);
-    }
     
 
     useEffect(() => {
@@ -89,8 +76,7 @@ export const CartProvider = ({children}) => {
             currentProduct,
             setCurrentProduct,
             total,
-            setTotal,
-            handleRemove
+            setTotal
         }}>
             {children}
         </CartContext.Provider>
