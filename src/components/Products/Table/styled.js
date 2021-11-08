@@ -10,8 +10,7 @@ const StyledTable = styled.table`
     thead {
         background-color: ${COLORS.SECONDARY};
         color: ${COLORS.LIGHT_BASE};
-    }
-}    
+    }   
 
     .table__product{
         display: flex;
@@ -39,6 +38,10 @@ const StyledTable = styled.table`
         justify-content: center;
         align-items: center;
         height: 100px;
+    }
+
+    .hide{
+        display: none;
     }
 `;
 

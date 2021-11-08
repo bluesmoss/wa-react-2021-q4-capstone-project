@@ -6,7 +6,7 @@ import remove from "../../../assets/delete.png";
 import { QuantitySelector, Wrapper } from "../../Common";
 
 
-function Table({stock, handleAddCart}){
+function Table({checkout}){
     const { itemsInCart } = useCartContext()
 
     console.log('en la tabla', itemsInCart);
@@ -19,7 +19,7 @@ function Table({stock, handleAddCart}){
                         <th>Price</th>
                         <th>Quantity</th>
                         <th>Subtotal</th>
-                        <th>Remove product</th>
+                        <th className={checkout ? "hide": ""}>Remove product</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,12 +33,13 @@ function Table({stock, handleAddCart}){
                             </th>
                             <th>{item.data.price}</th>
                             <th className="table__quantity">
-                                <Wrapper>
+                                <Wrapper className={checkout ? "hide": ""}>
                                     <QuantitySelector quantity={item.quantity} handleControls={()=> {}}/>
                                 </Wrapper>
+                                <span className={checkout ? "show": "hide"} >{item.quantity}</span>
                             </th>
                             <th>{item.subtotal}</th>
-                            <th>
+                            <th className={checkout ? "hide": ""}>
                                 <button className="table__remove">
                                     <img className="table__remove-button" src={remove} alt="remove"/>
                                 </button>
