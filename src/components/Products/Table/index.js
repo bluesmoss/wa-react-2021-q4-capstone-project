@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes, { element } from 'prop-types';
 import { StyledTable } from './styled'
 import { useCartContext } from "../../../providers/Cart";
 import { Link } from "react-router-dom";
@@ -52,9 +51,5 @@ function Table({stock, handleAddCart}){
     )
 }
 
-Table.propTypes = {
-
-};
-  
 
 export { Table }
