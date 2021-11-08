@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { StyledTotal } from './styled'
 import { useCartContext } from "../../../providers/Cart";
 import { Link } from "react-router-dom";
 import { Button, Wrapper } from "../../Common";
-import { ELEMENT_SIZE } from "../../../utils/constants";
+import { ELEMENT_SIZE, GENERAL } from "../../../utils/constants";
 
 
 function Total({checkout}){
@@ -14,7 +15,7 @@ function Total({checkout}){
                 <Wrapper className="total__wrapper">
                     <Wrapper className="total__title">
                         <span>Total:</span>
-                        <span>{`$ ${total}`}</span>
+                        <span>{`$ ${total.toFixed(GENERAL.DECIMAL_TO_SHOW)}`}</span>
                     </Wrapper>
                     <Wrapper>
                         <Link className={checkout ? "hide": ""} to="/checkout">
@@ -31,6 +32,10 @@ function Total({checkout}){
    
     )
 }
+
+Total.propTypes = {
+    checkout: PropTypes.bool,
+};
 
 
 export { Total }

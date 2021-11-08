@@ -1,7 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types';
 import { StyledForm } from './styled'
-import { GENERAL } from "../../../utils/constants";
 import { Wrapper } from "../../Common";
 
 function Form(){
@@ -30,10 +28,5 @@ function Form(){
         </StyledForm>
     )
 }
-
-Form.propTypes = {
-    
-};
-  
 
 export { Form }

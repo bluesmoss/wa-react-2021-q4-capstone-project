@@ -1,9 +1,8 @@
 import React, {Fragment} from "react";
-import { Link } from "react-router-dom";
-import { Button, TextGradient, Wrapper } from "../../components/Common";
+import { TextGradient, Wrapper } from "../../components/Common";
 import { Total, Table, Form } from "../../components/Products";
 import { useCartContext } from "../../providers/Cart";
-import { ELEMENT_SIZE, GENERAL } from "../../utils/constants";
+import { GENERAL } from "../../utils/constants";
 import { StyledCheckout } from "./styled"
 
 function Checkout(){
@@ -21,8 +20,6 @@ function Checkout(){
                     <Total checkout={true}></Total>                  
                 </Fragment>
             }
-
-
          
             </Wrapper>
         </StyledCheckout>

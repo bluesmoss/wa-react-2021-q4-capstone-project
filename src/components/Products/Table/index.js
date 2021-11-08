@@ -1,9 +1,11 @@
 import React from "react";
 import { StyledTable } from './styled'
+import PropTypes from 'prop-types';
 import { useCartContext } from "../../../providers/Cart";
 import { Link } from "react-router-dom";
 import remove from "../../../assets/delete.png";
 import { QuantitySelector, Wrapper } from "../../Common";
+import { GENERAL } from "../../../utils/constants";
 
 
 function Table({checkout}){
@@ -30,7 +32,7 @@ function Table({checkout}){
                                     <span>{item.data.name}</span>                                
                                 </Link>
                             </th>
-                            <th>{item.data.price}</th>
+                            <th>{item.data.price.toFixed(GENERAL.DECIMAL_TO_SHOW)}</th>
                             <th className="table__quantity">
                                 <Wrapper className={checkout ? "hide": ""}>
                                     <QuantitySelector quantity={item.quantity} handleControls={()=> {}}/>
@@ -50,6 +52,11 @@ function Table({checkout}){
    
     )
 }
+
+Table.propTypes = {
+    checkout: PropTypes.bool,
+};
+  
 
 
 export { Table }
