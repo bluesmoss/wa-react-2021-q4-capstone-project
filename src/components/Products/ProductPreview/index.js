@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import PropTypes from 'prop-types';
 import { Button, TextColored, Wrapper } from "../../Common"
 import { StyledProductPreview } from "./styled"
-import { ELEMENT_SIZE, GENERAL } from "../../../utils/constants";
+import { ELEMENT_SIZE, GENERAL, OPERATIONS } from "../../../utils/constants";
 import { Link } from "react-router-dom";
 import { CartButton } from "../CartButton";
 import { useCartContext } from "../../../providers/Cart";
 
 function ProductPreview({data, id}){
-    const { setCartItems } = useCartContext()
+    const { setCartItems, setCurrentProduct } = useCartContext()
     const [ stock, setStock ] = useState(GENERAL.PRODUCT_EMPTY)
 
     const handleAddItem = () => {
@@ -18,9 +18,12 @@ function ProductPreview({data, id}){
             })
         }
 
+        setCurrentProduct({id: id, data: data, quantity: GENERAL.SINGLE_ELEMENT , subtotal: data.price, operation: OPERATIONS.ADD})
+
         setCartItems((prevCartItems) => {
             return prevCartItems + GENERAL.SINGLE_ELEMENT
         })
+        
     }
 
     useEffect(()=> {
