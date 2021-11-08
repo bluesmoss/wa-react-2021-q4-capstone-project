@@ -4,4 +4,5 @@ export { ProductPreview } from "./ProductPreview";
 export { CartButton } from "./CartButton";
 export { Table } from "./Table";
 export { Total } from "./Total";
+export { Form } from "./Form";
 

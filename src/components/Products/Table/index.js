@@ -9,7 +9,6 @@ import { QuantitySelector, Wrapper } from "../../Common";
 function Table({checkout}){
     const { itemsInCart } = useCartContext()
 
-    console.log('en la tabla', itemsInCart);
     return (
 
             <StyledTable>
