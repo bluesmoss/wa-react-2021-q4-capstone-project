@@ -48,6 +48,10 @@ const StyledQuantitySelector = styled.div`
             border-color: ${COLORS.SECONDARY};
             color: ${COLORS.LIGHT_BASE}
         }
+
+        &.disable{
+            pointer-events: none;
+        }
     }        
 `;
 

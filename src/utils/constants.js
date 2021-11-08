@@ -42,7 +42,9 @@ const GENERAL = {
 
 const OPERATIONS = {
     ADD : 'add',
-    REMOVE : 'remove'
+    REMOVE : 'remove',
+    REST : 'rest',
+    UPDATE : 'update'
 }
 
 

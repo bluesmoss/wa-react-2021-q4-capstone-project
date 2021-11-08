@@ -73,7 +73,7 @@ function Product(){
                         <span className="product__price">${product.price}</span>
                         <p className="product__description">{product.short_description}</p>    
                         <Wrapper flex justify="start" className="product__add">
-                            <QuantitySelector quantity={quantity} handleControls={handleControls}/>
+                            <QuantitySelector  stock={stock} quantity={quantity} productId={productId} handleControls={handleControls}/>
                             <CartButton stock={stock} handleAddCart={handleAddCart} />                
                         </Wrapper>
                         <Wrapper>

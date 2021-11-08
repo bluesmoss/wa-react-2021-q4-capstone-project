@@ -19,6 +19,20 @@ export const CartProvider = ({children}) => {
     const [currentProduct, setCurrentProduct] = React.useState({})
     const [total, setTotal] = React.useState(0)
 
+    const handleRemove = productId => {
+        
+        const itemToRemove = itemsInCart.find((element) => {
+            return element.id === productId
+        })
+        
+        setCartItems((prevNumber) => {
+            return prevNumber - itemToRemove.quantity
+        })
+
+        console.log('itemToRemove', itemToRemove.quantity);
+    }
+    
+
     useEffect(() => {
         if (Object.keys(currentProduct).length){
             setItemsInCart(prevItems => {
@@ -75,7 +89,8 @@ export const CartProvider = ({children}) => {
             currentProduct,
             setCurrentProduct,
             total,
-            setTotal
+            setTotal,
+            handleRemove
         }}>
             {children}
         </CartContext.Provider>
