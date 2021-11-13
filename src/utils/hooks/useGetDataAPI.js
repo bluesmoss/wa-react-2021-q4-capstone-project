@@ -40,7 +40,7 @@ export function useGetDataAPI(query, pageSize, activePage) {
     return () => {
       controller.abort();
     };
-  }, [apiRef, isApiMetadataLoading]);
+  }, [apiRef, currentPage, isApiMetadataLoading, pageSize, query]);
 
   return results;
 }

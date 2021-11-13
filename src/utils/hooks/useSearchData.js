@@ -39,7 +39,7 @@ export function useSearchData(searchTerm) {
     return () => {
       controller.abort();
     };
-  }, [apiRef, isApiMetadataLoading]);
+  }, [apiRef, isApiMetadataLoading, searchTerm]);
   
   return searchData;
 }

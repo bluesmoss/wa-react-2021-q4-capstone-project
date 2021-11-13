@@ -24,7 +24,7 @@ function Gallery({slides}){
             <img src={arrowLeft} alt='previous' className="arrow left-arrow" onClick={prevSlide}/>
             <img src={arrowRight} alt='next' className="arrow right-arrow" onClick={nextSlide}/>
             {slides.map((slide, index) => (
-                <div key={slide.index} className={ current === index ? "slide active" : "slide"}>
+                <div key={`gallery-${index}`} className={ current === index ? "slide active" : "slide"}>
                     {current === index && (
                         <img  className="gallery__image" src={slide.image.url} alt={slide.image.alt} />  
                     )}

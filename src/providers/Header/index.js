@@ -1,5 +1,4 @@
-import React, {createContext, useState, useContext, useEffect} from "react";
-import { GENERAL } from "../../utils/constants";
+import React, {createContext, useContext} from "react";
 
 const HeaderContext = createContext()
 
@@ -16,8 +15,7 @@ export const useHeaderContext = () => {
 export const HeaderProvider = ({children}) => {
     const [searchValue, setSearchValue] = React.useState('')
     const [openModal, setOpenModal] = React.useState(false)
- 
-  
+
     return (
         <HeaderContext.Provider value={{
             openModal,

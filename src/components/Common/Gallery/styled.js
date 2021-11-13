@@ -8,13 +8,12 @@ max-height: 400px;
 
 
 .gallery__image{
-    max-height: 300px;
     width: 400px;
 }
 
 .arrow{
     position: absolute;
-    top: 140px;
+    top: 200px;
     user-select: none;
     cursor: pointer;
     z-index: 1;

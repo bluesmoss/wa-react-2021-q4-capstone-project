@@ -1,12 +1,13 @@
 const COLORS = {
     PRIMARY: '#3285d1',
-    SECONDARY: '#21c08b',
+    SECONDARY: '#0cc3ce',
     TERTIARY: '#f313fe',
     RED_WIZELINE: '#e93d44',
     DARK_WIZELINE: '#262e30',
     LIGHT_BASE: '#FFFFFF',
     DARK_BASE: '#454545',
-
+    GREY_LIGHT: '#d6d6d6',
+    GREY: '#8e8e8e'
 };
 
 const TEXT_COLOR_TYPES = {
@@ -33,8 +34,20 @@ const GENERAL = {
     ELEMENT_EMPTY_LENGTH : 0,
     EMPTY_ARRAY: [],
     SINGLE_ELEMENT: 1,
-    DELAY_DATA: 2000
+    DELAY_DATA: 2000,
+    PRODUCT_EMPTY: 0,
+    EMPTY_OBJECT: {},
+    DECIMAL_TO_SHOW: 2,
+    DEFAULT_PAGE: 1,
 }
+
+const OPERATIONS = {
+    ADD : 'add',
+    REMOVE : 'remove',
+    REST : 'rest',
+    UPDATE : 'update'
+}
+
 
 const QUERY = {
     CATEGORY_PREDICATE : '[[at(document.type, "category")]]',
@@ -45,4 +58,4 @@ const QUERY = {
 
 export const API_BASE_URL = 'https://wizeline-academy.cdn.prismic.io/api/v2';
 
-export { COLORS, TEXT_COLOR_TYPES, STYLES_SIZE, ELEMENT_SIZE, GENERAL, QUERY }
+export { COLORS, TEXT_COLOR_TYPES, STYLES_SIZE, ELEMENT_SIZE, GENERAL, QUERY, OPERATIONS }

@@ -40,7 +40,7 @@ export const ProductsProvider = ({children}) => {
                 })
             : allProducts
         })
-    }, [filters])    
+    }, [allProducts, filters])    
 
     const handleFilterProducts = (event) => {
         const filterEnabled = event.target.checked;

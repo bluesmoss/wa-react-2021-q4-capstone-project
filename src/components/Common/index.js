@@ -10,3 +10,5 @@ export { Paginator } from "./Paginator";
 export { Gallery } from "./Gallery";
 export { Modal } from "./Modal";
 export { Search } from "./Search";
+export { Cart } from "./Cart";
+export { QuantitySelector } from "./QuantitySelector"

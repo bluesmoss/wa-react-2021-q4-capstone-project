@@ -25,12 +25,12 @@ function Search(){
             setFilters(GENERAL.EMPTY_ARRAY)
             setPaginator(paginator)
         }
-    }, [products, isLoading])
+    }, [products, isLoading, setAllProducts, setFilteredProducts, setFilters, setPaginator])
 
     useEffect(()=>{
         setOpenModal(false)
         setQueryString(query)
-    }, [searchValue])
+    }, [query, searchValue, setOpenModal])
 
     return (
         <Fragment>
@@ -56,12 +56,14 @@ function Search(){
                             ))}                    
                         </ProductList>
                         <Paginator/>                        
-                    </Fragment>  :     
-                    
-                    <Wrapper flex padding="100px">
-                        <TextColored color={TEXT_COLOR_TYPES.SECONDARY}>No items Found</TextColored>
-                    </Wrapper> 
+                    </Fragment> : null
                 }
+
+                {(!isLoading && !products.results.length) ?
+                    <Wrapper flex padding="100px">
+                        <TextColored color={TEXT_COLOR_TYPES.SECONDARY}>No items found</TextColored>
+                    </Wrapper> : null
+                }                      
 
                        
      

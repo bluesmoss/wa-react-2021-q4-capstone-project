@@ -1,7 +1,6 @@
 import React from "react";
-import { TextGradient, Wrapper} from "../../Common"
+import { TextGradient, Wrapper, Cart        } from "../../Common"
 import { StyledHeader } from "./styled"
-import cart from "../../../assets/cart.png"
 import search from "../../../assets/search.svg"
 import { Link } from "react-router-dom";
 import { useHeaderContext } from "../../../providers/Header";
@@ -28,7 +27,7 @@ function Header(){
                         <img className="header__search-icon"  src={search} alt="search"/>
                     </button>
                 </Wrapper>
-                <img  className="header__cart"  src={cart} alt="cart"/>
+                <Cart></Cart>
             </Wrapper>            
         </StyledHeader>
     )
