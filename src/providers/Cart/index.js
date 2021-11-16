@@ -64,8 +64,8 @@ export const CartProvider = ({children}) => {
 
 
     useEffect(() => {
-        console.log('nne total', total);
-    }, [ total])    
+        console.log('total', total);
+    }, [total])    
 
     return (
         <CartContext.Provider value={{
