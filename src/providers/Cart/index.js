@@ -52,7 +52,6 @@ export const CartProvider = ({children}) => {
     }, [cartItems, currentProduct])    
     
     useEffect(() => {
-        console.log('change itemsInCart', itemsInCart);
         setTotal( prevTotal => {
             let totalUpdated = 0;
             itemsInCart.forEach(element => {
@@ -64,7 +63,6 @@ export const CartProvider = ({children}) => {
 
 
     useEffect(() => {
-        console.log('total', total);
     }, [total])    
 
     return (
